@@ -10,13 +10,6 @@ public:
 		while (phead != nullptr)
 			popFront();
 	};
-	void popFront();
-	void pushBack();
-	void pushFront();
-	void popBack();
-	void getAt();
-	void insert();
-	void erase();
 
 	void popFront() {
 		if (phead == nullptr)
