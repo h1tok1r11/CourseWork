@@ -1,8 +1,9 @@
 #include "Node.h"
 
+template <typename T>
 class OneLinkedList
 {
-private:
+public:
 	Node* phead, *ptail;
 public:
 	OneLinkedList(): phead(nullptr), ptail(nullptr) {};

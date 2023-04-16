@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DateOfBirth.h" />
+    <ClInclude Include="ListOfSubjects.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="RecordBook.h" />
     <ClInclude Include="Student.h" />

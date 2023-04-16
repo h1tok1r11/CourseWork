@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-//#include "LinkedList.cpp"
+#include "OneLinkedList.cpp"
 
 using namespace std;
 
@@ -8,5 +8,6 @@ using namespace std;
 class RecordBook
 {
 private:
+	OneLinkedList session;
 };
 
