@@ -3,13 +3,11 @@
 
 using namespace std;
 
-enum class markType : char { fail, pass, bad, satisfactory, good, excellent };
-
 class Subject
 {
 private:
-	markType mark;
-	string subjectName;
+	enum class markType : char { fail, pass, bad, satisfactory, good, excellent } mark;
+	char subjectName[40];
 public:
 	Subject(string subjectName, markType mark);
 	void setSubject(string subjectName, markType mark);

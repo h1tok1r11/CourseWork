@@ -1,10 +1,11 @@
 #include "Node.h"
+#pragma once
 
 template <typename T>
 class OneLinkedList
 {
 public:
-	Node* phead, *ptail;
+	Node<T>* phead, *ptail;
 public:
 	OneLinkedList(): phead(nullptr), ptail(nullptr) {};
 	~OneLinkedList() {
@@ -25,8 +26,8 @@ public:
 		delete pcur;
 	}
 
-	void pushBack(Subject subject) {
-		Node* pnew = new Node(subject);
+	void pushBack(T data) {
+		Node* pnew = new Node(data);
 		if (phead == nullptr)
 			phead = pnew;
 		if (ptail != nullptr) {
@@ -35,8 +36,8 @@ public:
 		}
 	}
 
-	void pushFront(Subject subject) {
-		Node* pnew = new Node(subject);
+	void pushFront(T data) {
+		Node* pnew = new Node(data);
 		pnew->pnext = phead;
 		phead = pnew;
 		if (ptail == nullptr)
@@ -59,7 +60,7 @@ public:
 
 	}
 
-	Node* getAt(int idx) {
+	Node<T>* getAt(int idx) {
 		if (idx < 0)
 			return nullptr;
 		Node* pcur = phead;
@@ -71,12 +72,12 @@ public:
 		return (cnt == idx) ? pcur : nullptr;
 	}
 
-	void insert(int idx, Subject subject) {
+	void insert(int idx, T data) {
 		Node* pleft = getAt(idx);
 		if (pleft == nullptr)
 			return;
 		Node* pright = pleft->pnext;
-		Node* pcur = new Node(subject);
+		Node* pcur = new Node(data);
 		pcur->pnext = pright;
 		pleft->pnext = pcur;
 		if (pright == nullptr)

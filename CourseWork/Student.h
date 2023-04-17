@@ -1,9 +1,6 @@
 #include "DateOfBirth.h"
 #include "RecordBook.h"
-
 #pragma once
-
-enum class sex : char {man, woman, attackHelicopter};
 
 class Student
 {
@@ -17,7 +14,7 @@ private:
 	string department;
 	string group;
 	string numberOfrecordBook;
-	sex sex;
+	enum class sex : char { man, woman, attackHelicopter } sex;
 	//RecordBook::
 
 public:

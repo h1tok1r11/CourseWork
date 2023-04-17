@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
-#include "OneLinkedList.cpp"
+#include "OneLinkedList.h"
+#pragma once
 
 using namespace std;
 
-#pragma once
 class RecordBook
 {
 private:
-	OneLinkedList session;
+	//OneLinkedList session;
 };
 

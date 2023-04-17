@@ -128,17 +128,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DateOfBirth.h" />
+    <ClInclude Include="ListOfSessions.h" />
     <ClInclude Include="ListOfSubjects.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="RecordBook.h" />
+    <ClInclude Include="Session.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Subject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DateOfBirth.cpp" />
-    <ClCompile Include="OneLinkedList.cpp" />
+    <ClCompile Include="ListOfSessions.cpp" />
+    <ClCompile Include="OneLinkedList.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RecordBook.cpp" />
+    <ClCompile Include="Session.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Subject.cpp" />
   </ItemGroup>

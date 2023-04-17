@@ -1,14 +1,8 @@
+#pragma once
 #include "Node.h"
 #include "Subject.h"
+#include "OneLinkedList.h"
 
-Node<Subject> subject(subject);
+//Node<Subject> subjectNode(Subject subject);
 
-class ListOfSubjects
-{
-public:
-	ListOfSubjects();
-	~ListOfSubjects();
-
-private:
-
-};
+OneLinkedList<Subject> listOfSubjects;
