@@ -18,3 +18,13 @@ char* Person::getFullName()
 {
 	return name, lastName, patronymic;
 }
+
+DateOfBirth Person::getDateOfBirth()
+{
+	return dateOfBirth;
+}
+
+//enum class sex Person::getSex()
+//{
+//	return sex();
+//}

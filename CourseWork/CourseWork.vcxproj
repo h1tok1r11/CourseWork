@@ -139,9 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DateOfBirth.cpp" />
+    <ClCompile Include="DBOfStudents.cpp" />
     <ClCompile Include="ListOfSessions.cpp" />
     <ClCompile Include="OneLinkedList.h" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="RecordBook.cpp" />
     <ClCompile Include="Session.cpp" />
