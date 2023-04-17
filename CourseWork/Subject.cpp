@@ -1,8 +1,12 @@
 #include "Subject.h"
 
-Subject::Subject(string subjectName, markType mark) :
-	subjectName(subjectName),mark(mark) {}
-void Subject::setSubject(string subjectName, markType mark)
+Subject::Subject(char subjectName[40], markType mark)
 {
+	setSubject(&subjectName[40], mark);
+}
+void Subject::setSubject(char subjectName[40], markType mark)
+{
+	strcpy_s(this->subjectName, sizeof(this->subjectName), subjectName);
+	this -> mark = mark;
 }
 ;

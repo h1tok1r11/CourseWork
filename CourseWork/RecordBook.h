@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
-#include "ListOfSessions.h"
+#include "OneLinkedList.h"
+#include "Session.h"
+//#include "ListOfSessions.h"
 #pragma once
 
 using namespace std;

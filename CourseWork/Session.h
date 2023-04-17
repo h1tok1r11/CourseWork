@@ -1,5 +1,7 @@
 #pragma once
-#include "ListOfSubjects.h"
+#include "OneLinkedList.h"
+#include "Subject.h"
+//#include "ListOfSubjects.h"
 
 class Session
 {

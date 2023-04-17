@@ -1,6 +1,6 @@
 #pragma once
-#include "ListOfSubjects.h"
+//#include "ListOfSubjects.h"
 #include "OneLinkedList.h"
 #include "Session.h"
 
-OneLinkedList<Session> listOfSessions;
+OneLinkedList<OneLinkedList<Subject>> listOfSessions;

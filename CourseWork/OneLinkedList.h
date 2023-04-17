@@ -21,13 +21,13 @@ public:
 			phead = ptail = nullptr;
 			return;
 		}
-		Node* pcur = phead;
+		Node<T>* pcur = phead;
 		phead = pcur->pnext;
 		delete pcur;
 	}
 
 	void pushBack(T data) {
-		Node* pnew = new Node(data);
+		Node<T>* pnew = new Node<T>(data);
 		if (phead == nullptr)
 			phead = pnew;
 		if (ptail != nullptr) {
@@ -37,7 +37,7 @@ public:
 	}
 
 	void pushFront(T data) {
-		Node* pnew = new Node(data);
+		Node<T>* pnew = new Node<T>(data);
 		pnew->pnext = phead;
 		phead = pnew;
 		if (ptail == nullptr)
@@ -52,7 +52,7 @@ public:
 			phead = ptail = nullptr;
 			return;
 		}
-		Node* pcur = phead;
+		Node<T>* pcur = phead;
 		for (; pcur->pnext != ptail; pcur = pcur->pnext);
 		pcur->pnext = nullptr;
 		delete ptail;
@@ -63,7 +63,7 @@ public:
 	Node<T>* getAt(int idx) {
 		if (idx < 0)
 			return nullptr;
-		Node* pcur = phead;
+		Node<T>* pcur = phead;
 		int cnt = 0;
 		while (pcur && pcur->pnext && cnt != idx) {
 			pcur = pcur->pnext;
@@ -73,11 +73,11 @@ public:
 	}
 
 	void insert(int idx, T data) {
-		Node* pleft = getAt(idx);
+		Node<T>* pleft = getAt(idx);
 		if (pleft == nullptr)
 			return;
-		Node* pright = pleft->pnext;
-		Node* pcur = new Node(data);
+		Node<T>* pright = pleft->pnext;
+		Node<T>* pcur = new Node<T>(data);
 		pcur->pnext = pright;
 		pleft->pnext = pcur;
 		if (pright == nullptr)
@@ -91,11 +91,11 @@ public:
 			popFront();
 			return;
 		}
-		Node* pleft = getAt(idx - 1);
-		Node* pcur = pleft->pnext;
+		Node<T>* pleft = getAt(idx - 1);
+		Node<T>* pcur = pleft->pnext;
 		if (pcur == nullptr)
 			return;
-		Node* pright = pcur->pnext;
+		Node<T>* pright = pcur->pnext;
 		pleft->pnext = pright;
 		if (pcur == ptail)
 			ptail = pleft;
