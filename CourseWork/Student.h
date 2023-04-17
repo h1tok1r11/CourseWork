@@ -12,8 +12,7 @@ private:
 	string department;
 	string group;
 	string numberOfrecordBook;
-	//RecordBook::
-
+	RecordBook recordBook;
 public:
 	//Student(string name, string secondName, string patronymic);
 };

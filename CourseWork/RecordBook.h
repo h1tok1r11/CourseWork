@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "OneLinkedList.h"
+#include "ListOfSessions.h"
 #pragma once
 
 using namespace std;
@@ -8,6 +8,6 @@ using namespace std;
 class RecordBook
 {
 private:
-	//OneLinkedList session;
+	OneLinkedList<Session> listOfSessions;
 };
 
