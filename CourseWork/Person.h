@@ -1,5 +1,6 @@
 #pragma once
 #include "DateOfBirth.h"
+#include <string.h>
 
 class Person
 {
