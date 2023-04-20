@@ -5,8 +5,8 @@ class Node
 {
 public:
 	T data;
-	Node* pnext;
+	Node* pNext;
 
-	Node(T data) :
-		data(data), pnext(nullptr) {}
+	Node(T data = T(), Node* pNext = nullptr) :
+		data(data), pNext(pNext) {}
 };

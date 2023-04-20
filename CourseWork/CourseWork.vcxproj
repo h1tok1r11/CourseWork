@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="DateOfBirth.h" />
     <ClInclude Include="InputValidation.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="ListOfSessions.h" />
     <ClInclude Include="ListOfSubjects.h" />
     <ClInclude Include="Node.h" />
