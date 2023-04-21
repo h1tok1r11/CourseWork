@@ -3,7 +3,7 @@
 
 using namespace std;
 
-enum class markType : char { fail, pass, bad, satisfactory, good, excellent };
+enum markType : int { fail, pass, bad, satisfactory, good, excellent };
 
 class Subject
 {

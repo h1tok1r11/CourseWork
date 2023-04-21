@@ -1,6 +1,8 @@
 #pragma once
-//#include "ListOfSubjects.h"
-#include "OneLinkedList.h"
+#include "ListOfSubjects.h"
+//#include "List.h"
 #include "Session.h"
 
-OneLinkedList<OneLinkedList<Subject>> listOfSessions;
+//template <typename T>
+//List<List<Subject>> listOfSessions;
+//List<listOfSubjects> listOfSessions;

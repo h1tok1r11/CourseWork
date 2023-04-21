@@ -11,30 +11,40 @@
 #include "OneLinkedList.h"
 #include "Subject.h"
 #include "List.h"
+//#include "ListOfSessions.h"
 
 int main(){
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
     
-    /*Subject Sub1("math", markType::bad);
+    Subject Sub1("math", markType::bad);
     Subject Sub2("OIB", markType::excellent);
     Subject Sub3("Economic", markType::good);
     Subject Sub[5] = { Sub1, Sub2, Sub3 };
-    OneLinkedList<Subject> A;
+    List<Subject> list;
 
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 3; j++) {
-            A.pushBack(Sub[j]);
-        }*/
+    /*for (int i = 0; i < 3; i++)
+        list.push_back(Sub[i]);*/
 
-    List<int> list;
-    list.push_back(10);
+    /*List<Subject> list;
+    list.push_back();
     list.push_back(3);
     list.push_back(2);
-    list.insert(15, 1);
+    list.insert(15, 1);*/
 
-    /*for (int i = 0; i < 5; i++)
+    /*for (int i = 0; i < list.getSize(); i++)
+    {
+        cout << list[i].getMark() << " " << list[i].getSubjectName() << endl;
+    }
+    cout << endl << endl;*/
+
+    /*list.removeAt(2);
+    for (int i = 0; i < list.getSize(); i++)
     {
         cout << list[i] << endl;
     }*/
+
+
+
+    //listOfSessions.push_front(list);
 }

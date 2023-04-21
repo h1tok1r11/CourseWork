@@ -1,8 +1,9 @@
 #pragma once
 #include "Node.h"
 #include "Subject.h"
-#include "OneLinkedList.h"
+//#include "List.h"
 
 //Node<Subject> subjectNode(Subject subject);
 
-OneLinkedList<Subject> listOfSubjects;
+//template <typename T>
+//List<Subject> listOfSubjects;

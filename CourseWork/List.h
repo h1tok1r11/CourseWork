@@ -1,5 +1,6 @@
 #pragma once
 #include "Node.h"
+#include <iostream>
 
 template <typename T>
 class List
@@ -20,7 +21,7 @@ public:
 	void insert(T data, int idx);
 	void removeAt(int idx);
 	void pop_back();
-	Node<T>* getAt(int idx);
+	//Node<T>* getAt(int idx);
 };
 
 template <typename T>
@@ -28,14 +29,14 @@ inline List<T>::List()
 {
 	Size = 0;
 	pHead = pTail = nullptr;
-	std::cout << "Вызвался конструктор" << endl;
+	std::cout << "Вызвался конструктор" << std::endl;
 }
  
 template<typename T>
 inline List<T>::~List()
 {
 	clear();
-	std::cout << "Вызвался деструктор" << endl;
+	std::cout << "Вызвался деструктор" << std::endl;
 }
 
 template<typename T>
