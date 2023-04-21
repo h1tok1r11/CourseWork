@@ -27,7 +27,7 @@ public:
 	}
 
 	void pushBack(T data) {
-		Node<T>* pnew = new Node<T>(data);
+		 Node<T>* pnew = new Node<T>(data);
 		if (phead == nullptr) {
 			phead = pnew;
 			ptail = phead;
