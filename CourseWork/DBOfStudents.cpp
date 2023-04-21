@@ -30,4 +30,11 @@ int main(){
     List<int> list;
     list.push_back(10);
     list.push_back(3);
+    list.push_back(2);
+    list.insert(15, 1);
+
+    /*for (int i = 0; i < 5; i++)
+    {
+        cout << list[i] << endl;
+    }*/
 }
