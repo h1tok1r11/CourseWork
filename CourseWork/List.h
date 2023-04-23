@@ -177,3 +177,15 @@ void List<T>::pop_back()
 {
 	removeAt(Size - 1);
 }
+
+template<typename T>
+void printItems()
+{
+	Node<T>* pCur = this->pHead;
+	int i = 0;
+	while (pCur != nullptr) {
+		cout << i << ". " << pCur[i] << endl;
+		i++;
+		pCur = pCur->pNext;
+	}
+}

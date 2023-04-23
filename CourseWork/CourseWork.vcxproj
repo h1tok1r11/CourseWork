@@ -132,6 +132,7 @@
     <ClInclude Include="List.h" />
     <ClInclude Include="ListOfSessions.h" />
     <ClInclude Include="ListOfSubjects.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="RecordBook.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="DBOfStudents.cpp" />
     <ClCompile Include="InputValidation.cpp" />
     <ClCompile Include="ListOfSessions.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="OneLinkedList.h" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="RecordBook.cpp" />

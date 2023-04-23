@@ -4,24 +4,25 @@
 #include <string.h>
 #include <conio.h>
 #include <stdio.h>
-#include "ClassEditData.h"
-#include "ClassList.h"
+#include "InputValidation.h"
+#include "List.h"
 
+template <typename T>
 class ClassMenu
 {
 private:
-	string upTitle; //Çàãîëîâîê ìåíþ (ñâåðõó)
-	ClassList items; //Ïóíêòû ìåíþ  
-	string downTitle; //Çàãîëîâîê  ìåíþ (ñíèçó)
+	string upTitle;
+	List<T> items; 
+	string downTitle;
 public:
 
-	ClassMenu(string _upTitle) {
-		upTitle = move(_upTitle);
-		//upTitle =  _upTitle; // Òàê íå íÿäî ... äîëãî;(
+	ClassMenu(string upTitle) {
+		this->upTitle = move(upTitle);
+		//upTitle =  _upTitle;
 	}
 
-	ClassMenu() : ClassMenu("Ãëàâíîå ìåíþ") {
-		downTitle = "Âûáåðèòå ïóíêò èç ìåíþ (÷èñëî): ";
+	ClassMenu() : ClassMenu("dfsdf sdfd") {
+		downTitle = "dfsdf df ";
 	}
 
 	void addMenuItem(string _item) {
@@ -39,8 +40,8 @@ public:
 	}
 	int run() {
 		draw();
-		ClassEditData* cl = new ClassEditData();
-		cl->setLabel("Ââåäèòå ÷èñëî");
+		InputValidation* cl = new InputValidation();
+		cl->setLabel("sdf df");
 		int min = 0, max = items.getCount();
 		int selectItem = cl->getData(editType::onlyDigit, min, max);
 		delete cl;
