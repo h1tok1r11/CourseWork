@@ -1,20 +1,32 @@
 #include "Person.h"
 
-Person::Person(char name[20], char secondName[30], char patronymic[20], DateOfBirth dateOfBirth, enum class sex sex)
+Person::Person()
 {
-	setPerson(&name[20], &secondName[30], &patronymic[20], dateOfBirth, sex);
+	this->name = "";
+	this->lastName = "";
+	this->patronymic = "";
+	dateOfBirth;
+	sex = man;
 }
 
-void Person::setPerson(char name[20], char lastName[30], char patronymic[20], DateOfBirth dateOfBirth, enum class sex sex)
+Person::Person(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex)
 {
-	strcpy_s(this->name, sizeof(this->name), name);
+	setPerson(name, lastName, patronymic, dateOfBirth, sex);
+}
+
+void Person::setPerson(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex)
+{
+	/*strcpy_s(this->name, sizeof(this->name), name);
 	strcpy_s(this->lastName, sizeof(this->lastName), lastName);
-	strcpy_s(this->patronymic, sizeof(this->patronymic), patronymic);
+	strcpy_s(this->patronymic, sizeof(this->patronymic), patronymic);*/
+	this->name = name;
+	this->lastName = lastName;
+	this->patronymic = patronymic;
 	this->dateOfBirth = dateOfBirth;
 	this->sex = sex;
 }
 
-char* Person::getFullName()
+string Person::getFullName()
 {
 	return name, lastName, patronymic;
 }
