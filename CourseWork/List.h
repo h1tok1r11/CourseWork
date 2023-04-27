@@ -21,6 +21,7 @@ public:
 	void insert(T data, int idx);
 	void removeAt(int idx);
 	void pop_back();
+	void printItems();
 	//Node<T>* getAt(int idx);
 };
 
@@ -179,12 +180,12 @@ void List<T>::pop_back()
 }
 
 template<typename T>
-void printItems()
+void List<T>::printItems()
 {
 	Node<T>* pCur = this->pHead;
 	int i = 0;
 	while (pCur != nullptr) {
-		cout << i << ". " << pCur[i] << endl;
+		std::cout << i << ". " << pCur->data << std::endl;
 		i++;
 		pCur = pCur->pNext;
 	}

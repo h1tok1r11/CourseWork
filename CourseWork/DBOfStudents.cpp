@@ -12,6 +12,9 @@
 #include "Subject.h"
 #include "List.h"
 //#include "ListOfSessions.h"
+#include "Menu.h"
+
+using namespace std;
 
 int main(){
 	SetConsoleCP(1251);
@@ -51,4 +54,9 @@ int main(){
 
     //List<List<Subject>> listOfSessions;
     //listOfSessions.push_back(list);
+
+    Menu<string> menu;
+    menu.addMenuItem("Zhopa");
+    menu.addMenuItem("Ruka");
+    menu.run();
 }

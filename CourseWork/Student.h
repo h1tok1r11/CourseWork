@@ -14,6 +14,6 @@ private:
 	string numberOfrecordBook;
 	RecordBook recordBook;
 public:
-	//Student(string name, string secondName, string patronymic);
+	Student(string name, string secondName, string patronymic);
 };
 

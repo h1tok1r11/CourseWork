@@ -2,7 +2,9 @@
 
 DateOfBirth::DateOfBirth()
 {
-	setDateOfBirth(day, month, year);
+	this->day = 0;
+	this->month = 0;
+	this->year = 0;
 }
 
 DateOfBirth::DateOfBirth(unsigned short day, unsigned short month, unsigned short year) :

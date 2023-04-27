@@ -8,7 +8,7 @@
 #include "List.h"
 
 template <typename T>
-class ClassMenu
+class Menu
 {
 private:
 	string upTitle;
@@ -16,13 +16,13 @@ private:
 	string downTitle;
 public:
 
-	ClassMenu(string upTitle) {
+	Menu(string upTitle) {
 		this->upTitle = move(upTitle);
 		//upTitle =  _upTitle;
 	}
 
-	ClassMenu() : ClassMenu("dfsdf sdfd") {
-		downTitle = "dfsdf df ";
+	Menu() : Menu("Just trash") {
+		downTitle = "Another trash";
 	}
 
 	void addMenuItem(string _item) {
@@ -35,15 +35,15 @@ public:
 		//for (int i = 0; i < count; i++) {
 		//	cout << i << ". " << items.getItem(i) << endl;
 		//}
-		items.printItems4Menu();
+		items.printItems();
 		cout << downTitle << endl;
 	}
 	int run() {
 		draw();
-		InputValidation* cl = new InputValidation();
-		cl->setLabel("sdf df");
-		int min = 0, max = items.getCount();
-		int selectItem = cl->getData(editType::onlyDigit, min, max);
+		InputValidation* cl = new InputValidation;
+		cl->setLabel("Input name");
+		int min = 0, max = items.getSize();
+		int selectItem = cl->getData(editType::onlyDigits, min, max);
 		delete cl;
 		return selectItem;
 
