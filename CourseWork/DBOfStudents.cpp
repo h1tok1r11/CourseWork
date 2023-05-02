@@ -55,8 +55,10 @@ int main(){
     //List<List<Subject>> listOfSessions;
     //listOfSessions.push_back(list);
 
-    Menu<string> menu;
+    /*Menu<string> menu;
     menu.addMenuItem("Zhopa");
     menu.addMenuItem("Ruka");
-    menu.run();
+    menu.run();*/
+    DateOfBirth a;
+    cout << a.getDay() << a.getMonth() << a.getYear();
 }
