@@ -6,7 +6,7 @@ Person::Person()
 	this->lastName = "";
 	this->patronymic = "";
 	dateOfBirth;
-	sex = man;
+	sex = attackHelicopter;
 }
 
 Person::Person(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex)
@@ -25,18 +25,3 @@ void Person::setPerson(string name, string lastName, string patronymic, DateOfBi
 	this->dateOfBirth = dateOfBirth;
 	this->sex = sex;
 }
-
-string Person::getFullName()
-{
-	return name, lastName, patronymic;
-}
-
-DateOfBirth Person::getDateOfBirth()
-{
-	return dateOfBirth;
-}
-
-//enum class sex Person::getSex()
-//{
-//	return sex();
-//}

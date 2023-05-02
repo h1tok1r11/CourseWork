@@ -59,6 +59,6 @@ int main(){
     menu.addMenuItem("Zhopa");
     menu.addMenuItem("Ruka");
     menu.run();*/
-    DateOfBirth a;
-    cout << a.getDay() << a.getMonth() << a.getYear();
+    Person a;
+    cout << a.getDateOfBirth().getDay();
 }

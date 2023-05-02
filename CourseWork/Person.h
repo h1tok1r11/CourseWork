@@ -5,6 +5,8 @@
 
 using namespace std;
 
+enum sex : char { man, woman, attackHelicopter };
+
 class Person
 {
 private:
@@ -15,13 +17,16 @@ private:
 	string lastName;
 	string patronymic;
 	DateOfBirth dateOfBirth;
-	enum sex : char { man, woman, attackHelicopter } sex;
+	sex sex;
+	//enum sex : char { man, woman, attackHelicopter } sex;
 public:
 	Person();
 	Person(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex);
 	void setPerson(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex);
-	string getFullName();
-	DateOfBirth getDateOfBirth();
-	//enum class sex getSex();
+	string getName() { return name; };
+	string getLastName() { return lastName; };
+	string getPatronymic() { return patronymic; };
+	DateOfBirth getDateOfBirth(){ return dateOfBirth; };
+	enum sex getSex() { return sex; };
 };
 
