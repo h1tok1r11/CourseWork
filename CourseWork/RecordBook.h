@@ -10,6 +10,9 @@ using namespace std;
 class RecordBook
 {
 private:
-	List<Session> listOfSessions;
+	unsigned short semester;
+	Subject subjects[10];
+	
+	//List<Session> listOfSessions;
 };
 
