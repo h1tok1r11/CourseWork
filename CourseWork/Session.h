@@ -1,12 +1,12 @@
 #pragma once
-#include "OneLinkedList.h"
+#include "List.h"
 #include "Subject.h"
 //#include "ListOfSubjects.h"
 
 class Session
 {
 private:
-	OneLinkedList<Subject> listOfSubjects;
+	List<Subject> listOfSubjects;
 public:
 	//Session();
 };
