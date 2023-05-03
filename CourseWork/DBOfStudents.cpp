@@ -13,6 +13,7 @@
 #include "List.h"
 //#include "ListOfSessions.h"
 #include "Menu.h"
+#include "Student.h"
 
 using namespace std;
 
@@ -61,4 +62,6 @@ int main(){
     menu.run();*/
     Person a;
     cout << a.getDateOfBirth().getDay();
+    Student student;
+    student.setYearOfAdmission(1970);
 }
