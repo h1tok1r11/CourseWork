@@ -15,12 +15,13 @@ Student::Student()
 Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook) :
 	yearOfAdmission(yearOfAdmission), faculty(faculty), department(department), group(group), numberOfrecordBook(numberOfrecordBook){}
 
-bool Student::findStudentByRecordBook(string recordBook, List<Student> students)
-{
-	for (auto& student : students) {
-		if (!strcmp(student.GetRecordBook(), recordBook)) return true;
-	return false;
-}
+//bool Student::findStudentByRecordBook(string recordBook, List<Student> students)
+//{
+//	/*for (auto& student : students) {
+//		if (!strcmp(student.GetRecordBook(), recordBook)) return true;
+//	return false;*/
+//	for (auto p = std::begin(students);)
+//}
 
 bool Student::setYearOfAdmission(unsigned short yearOfAdmission)
 {

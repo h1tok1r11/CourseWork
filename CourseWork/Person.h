@@ -24,9 +24,11 @@ public:
 	Person(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex);
 	void setPerson(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex);
 	string getName() { return name; };
+
 	string getLastName() { return lastName; };
 	string getPatronymic() { return patronymic; };
 	DateOfBirth getDateOfBirth(){ return dateOfBirth; };
+	void setSex(enum sex sex);
 	enum sex getSex() { return sex; };
 };
 

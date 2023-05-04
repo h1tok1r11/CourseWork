@@ -25,3 +25,7 @@ void Person::setPerson(string name, string lastName, string patronymic, DateOfBi
 	this->dateOfBirth = dateOfBirth;
 	this->sex = sex;
 }
+void Person::setSex(enum sex sex)
+{
+	this->sex = sex;
+}

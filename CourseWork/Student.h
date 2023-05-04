@@ -15,7 +15,7 @@ private:
 public:
 	Student();
 	Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook);
-	static bool findStudentByRecordBook(string recordBook, List<Student> students);
+	//static bool findStudentByRecordBook(string recordBook, List<Student> students);
 	bool setYearOfAdmission(unsigned short yearOfAdmission);
 	unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
 	void setFaculty(string faculty);

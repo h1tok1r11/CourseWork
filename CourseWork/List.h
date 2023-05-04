@@ -40,6 +40,15 @@ inline List<T>::~List()
 	std::cout << "Вызвался деструктор" << std::endl;
 }
 
+//template <typename T>
+//T* begin() { return &data[0]; }
+//template <typename T>
+//const T* begin() { return &data[0]; }
+//template <typename T>
+//T* end() { return &data[length]; }
+//template <typename T>
+//const T* end() { return &data[length]; }
+
 template<typename T>
 void List<T>::push_back(T data)
 {
