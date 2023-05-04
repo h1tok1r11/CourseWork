@@ -2,14 +2,13 @@
 
 Student::Student()
 {
-	{
-		this->yearOfAdmission = 0;
-		this->faculty = "";
-		this->department = "";
-		this->group = "";
-		this->numberOfrecordBook = "";
-		//this->recordBook =
-	};
+	nameOfFile = "database.bin";
+	inputValidation = new InputValidation();
+}
+
+Student::~Student()
+{
+	delete inputValidation;
 }
 
 Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook) :
@@ -22,6 +21,20 @@ Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string
 //	return false;*/
 //	for (auto p = std::begin(students);)
 //}
+
+void Student::setDefaultData()
+{
+	name = "Борис";
+	lastName = "Бритва";
+	patronymic = "Анатолич";
+	dateOfBirth = "28.02.1980";
+	sex = sex::attackHelicopter;
+	yearOfAdmission = 2000;
+	faculty = "ИКБ";
+	department = "Информационная безопасность";
+	group = "БББО-05-22";
+	numberOfrecordBook = "1055067";
+}
 
 bool Student::setYearOfAdmission(unsigned short yearOfAdmission)
 {

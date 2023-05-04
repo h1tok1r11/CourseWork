@@ -64,4 +64,5 @@ int main(){
     cout << a.getDateOfBirth().getDay();
     Student student;
     student.setYearOfAdmission(1970);
+
 }

@@ -1,21 +1,26 @@
 #include "DateOfBirth.h"
 #include "RecordBook.h"
 #include "Person.h"
+#include "InputValidation.h"
 #pragma once
 
 class Student : public Person
 {
 private:
+	string nameOfFile;
 	unsigned short yearOfAdmission;
 	string faculty;
 	string department;
 	string group;
 	string numberOfrecordBook;
 	//RecordBook recordBook;
+	InputValidation* inputValidation;
 public:
 	Student();
+	~Student();
 	Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook);
 	//static bool findStudentByRecordBook(string recordBook, List<Student> students);
+	void setDefaultData();
 	bool setYearOfAdmission(unsigned short yearOfAdmission);
 	unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
 	void setFaculty(string faculty);
@@ -24,4 +29,6 @@ public:
 	string getDepartment() { return department; }
 	void setGroup(string group);
 	string getgroup() { return group; }
+
+
 };
