@@ -22,8 +22,8 @@ protected:
 	//enum sex : char { man, woman, attackHelicopter } sex;
 public:
 	Person();
-	Person(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex);
-	void setPerson(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex);
+	Person(string name, string lastName, string patronymic, string dateOfBirth, enum sex sex);
+	void setPerson(string name, string lastName, string patronymic, string dateOfBirth, enum sex sex);
 	string getName() { return name; };
 
 	string getLastName() { return lastName; };

@@ -4,6 +4,12 @@
 #include "InputValidation.h"
 #pragma once
 
+struct Sessions {
+	string name;
+	enum markType;
+	bool isEmpty;
+};
+
 class Student : public Person
 {
 private:
@@ -14,13 +20,13 @@ private:
 	string group;
 	string numberOfrecordBook;
 	//RecordBook recordBook;
+	Sessions sessions[9][10];
 	InputValidation* inputValidation;
 public:
 	Student();
 	~Student();
 	Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook);
 	//static bool findStudentByRecordBook(string recordBook, List<Student> students);
-	void setDefaultData();
 	bool setYearOfAdmission(unsigned short yearOfAdmission);
 	unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
 	void setFaculty(string faculty);
@@ -29,6 +35,6 @@ public:
 	string getDepartment() { return department; }
 	void setGroup(string group);
 	string getgroup() { return group; }
-
-
+	void setDefaultData();
+	void printData();
 };

@@ -9,12 +9,12 @@ Person::Person()
 	sex = attackHelicopter;
 }
 
-Person::Person(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex)
+Person::Person(string name, string lastName, string patronymic, string dateOfBirth, enum sex sex)
 {
 	setPerson(name, lastName, patronymic, dateOfBirth, sex);
 }
 
-void Person::setPerson(string name, string lastName, string patronymic, DateOfBirth dateOfBirth, enum sex sex)
+void Person::setPerson(string name, string lastName, string patronymic, string dateOfBirth, enum sex sex)
 {
 	/*strcpy_s(this->name, sizeof(this->name), name);
 	strcpy_s(this->lastName, sizeof(this->lastName), lastName);

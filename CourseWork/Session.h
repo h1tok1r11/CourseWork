@@ -9,7 +9,7 @@ private:
 	unsigned short semester;
 	unsigned short countOfSubjects;
 	Subject subjects[10];
-	List<Subject> listOfSubjects;
+	//List<Subject> listOfSubjects;
 public:
 	Session()
 	{

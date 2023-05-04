@@ -11,6 +11,7 @@ private:
 	//enum class markType : char { fail, pass, bad, satisfactory, good, excellent } mark;
 	markType mark;
 	string subjectName;
+	bool isEmpty;
 public:
 	Subject() {
 		mark = markType::fail;

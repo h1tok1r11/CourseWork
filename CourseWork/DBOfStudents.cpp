@@ -60,8 +60,6 @@ int main(){
     menu.addMenuItem("Zhopa");
     menu.addMenuItem("Ruka");
     menu.run();*/
-    Person a;
-    cout << a.getDateOfBirth().getDay();
     Student student;
     student.setYearOfAdmission(1970);
 
