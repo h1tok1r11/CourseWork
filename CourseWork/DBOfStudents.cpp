@@ -60,7 +60,6 @@ int main(){
     menu.addMenuItem("Zhopa");
     menu.addMenuItem("Ruka");
     menu.run();*/
-    Student student;
-    student.setYearOfAdmission(1970);
+    //Student student;
 
 }

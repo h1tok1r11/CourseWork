@@ -10,18 +10,18 @@ enum sex : char { man, woman, attackHelicopter };
 class Person
 {
 protected:
-	/*char name[20];
+	char name[20];
 	char lastName[30];
-	char patronymic[20];*/
-	string name;
+	char patronymic[20];
+	/*string name;
 	string lastName;
-	string patronymic;
+	string patronymic;*/
 	//DateOfBirth dateOfBirth;
-	string dateOfBirth;
+	char dateOfBirth[10];
 	sex sex;
 	//enum sex : char { man, woman, attackHelicopter } sex;
 public:
-	Person();
+	/*Person();
 	Person(string name, string lastName, string patronymic, string dateOfBirth, enum sex sex);
 	void setPerson(string name, string lastName, string patronymic, string dateOfBirth, enum sex sex);
 	string getName() { return name; };
@@ -30,6 +30,6 @@ public:
 	string getPatronymic() { return patronymic; };
 	string getDateOfBirth(){ return dateOfBirth; };
 	void setSex(enum sex sex);
-	enum sex getSex() { return sex; };
+	enum sex getSex() { return sex; };*/
 };
 

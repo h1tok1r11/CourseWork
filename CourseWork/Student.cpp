@@ -12,8 +12,8 @@ Student::~Student()
 	delete inputValidation;
 }
 
-Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook) :
-	yearOfAdmission(yearOfAdmission), faculty(faculty), department(department), group(group), numberOfrecordBook(numberOfrecordBook){}
+//Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook) :
+//	yearOfAdmission(yearOfAdmission), faculty(faculty), department(department), group(group), numberOfrecordBook(numberOfrecordBook){}
 
 //bool Student::findStudentByRecordBook(string recordBook, List<Student> students)
 //{
@@ -23,44 +23,44 @@ Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string
 //	for (auto p = std::begin(students);)
 //}
 
-bool Student::setYearOfAdmission(unsigned short yearOfAdmission)
-{
-	if (not(yearOfAdmission > 2000 and yearOfAdmission < 2023))
-	{
-		cout << "!!!Вы ввели неверный год поступления!!!" << endl << " (не в диапазоне от 2000 до 2023)" << endl;
-		return false;
-	}
-	this->yearOfAdmission = yearOfAdmission;
-	return true;
-}
-
-void Student::setFaculty(string faculty)
-{
-	this->faculty = faculty;
-}
-
-void Student::setDepartment(string department)
-{
-	this->department = department;
-}
-
-void Student::setGroup(string group)
-{
-	this->group = group;
-}
+//bool Student::setYearOfAdmission(unsigned short yearOfAdmission)
+//{
+//	if (not(yearOfAdmission > 2000 and yearOfAdmission < 2023))
+//	{
+//		cout << "!!!Вы ввели неверный год поступления!!!" << endl << " (не в диапазоне от 2000 до 2023)" << endl;
+//		return false;
+//	}
+//	this->yearOfAdmission = yearOfAdmission;
+//	return true;
+//}
+//
+//void Student::setFaculty(string faculty)
+//{
+//	this->faculty = faculty;
+//}
+//
+//void Student::setDepartment(string department)
+//{
+//	this->department = department;
+//}
+//
+//void Student::setGroup(string group)
+//{
+//	this->group = group;
+//}
 
 void Student::setDefaultData()
 {
-	name = "Борис";
-	lastName = "Бритва";
-	patronymic = "Анатолич";
-	dateOfBirth = "28.02.1980";
+	strcpy_s(name, "Борис");
+	strcpy_s(lastName, "Бритва");
+	strcpy_s(patronymic, "Анатолич");
+	strcpy_s(dateOfBirth, "28.02.1980");
 	sex = sex::attackHelicopter;
 	yearOfAdmission = 2000;
-	faculty = "ИКБ";
-	department = "Информационная безопасность";
-	group = "БББО-05-22";
-	numberOfrecordBook = "1055067";
+	strcpy_s(faculty, "ИКБ");
+	strcpy_s(department, "Информационная безопасность");
+	strcpy_s(group, "БББО-05-22");
+	strcpy_s(numberOfrecordBook, "1055А67");
 	for (int i = 0; i < 9; i++)
 		for (int j = 0; j < 10; j++) {
 			sessions[i][j].isEmpty = true;
@@ -71,8 +71,8 @@ void Student::printData() {
 	cout << endl << " _________Информация о студенте:_________" << endl;
 	cout << "Фамилия: " << lastName << " Имя: " << name << " Отчество: " << patronymic << endl <<
 		"Дата рождения: " << dateOfBirth << endl << "Год поступления: " << yearOfAdmission << endl <<
-		"Факультет (институт): " << faculty << endl << "Группа: " << group << endl <<
-		"Номер зачётной книжки: " << numberOfrecordBook << endl;
+		"Факультет (институт): " << faculty << endl << "Кафедра: " << department << endl <<
+		"Группа: " << group << endl << "Номер зачётной книжки: " << numberOfrecordBook << endl;
 	cout << " Пол: ";
 	if (sex == sex::man) { cout << "Человек " << endl; }
 	if (sex == sex::woman) { cout << "Женщина " << endl; }
@@ -90,6 +90,7 @@ void Student::editStudent() {
 	menuOfStudents->addMenuItem("Изменить дату рождения"); // 4
 	menuOfStudents->addMenuItem("Изменить год постулпения"); // 5
 	menuOfStudents->addMenuItem("Изменить факультет (институт)"); // 6
+	menuOfStudents->addMenuItem("Изменить кафедру");
 	menuOfStudents->addMenuItem("Изменить группу"); // 7
 	menuOfStudents->addMenuItem("Изменить номер зачётной книжки"); // 8
 	menuOfStudents->addMenuItem("Изменить пол"); // 9
