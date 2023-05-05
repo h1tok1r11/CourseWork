@@ -37,4 +37,5 @@ public:
 	string getgroup() { return group; }
 	void setDefaultData();
 	void printData();
+	void editStudent();
 };

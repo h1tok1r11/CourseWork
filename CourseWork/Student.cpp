@@ -1,4 +1,5 @@
 ﻿#include "Student.h"
+#include "Menu.h"
 
 Student::Student()
 {
@@ -78,31 +79,31 @@ void Student::printData() {
 	if (sex == sex::attackHelicopter) { cout << "Боевой вертолёт " << endl; }
 }
 
-void editStudent() {
-	setDefaultData();
-	ClassMenu* studMenu = new ClassMenu("Ìåíþ ðåäàêòèðîâàíèÿ ñòóäåíòà");
+void Student::editStudent() {
+	Student::setDefaultData();
+	Menu<string>* menuOfStudents = new Menu<string>("Меню редактирования студента");
 
-	studMenu->addMenuItem("Âûõîä"); // 0
-	studMenu->addMenuItem("Èçìåíèòü ôàìèëèþ"); // 1 
-	studMenu->addMenuItem("Èçìåíèòü èìÿ"); // 2
-	studMenu->addMenuItem("Èçìåíèòü îò÷åñòâî"); // 3
-	studMenu->addMenuItem("Èçìåíèòü èíñòèòóò"); // 4
-	studMenu->addMenuItem("Èçìåíèòü êàôåäðó"); // 5
-	studMenu->addMenuItem("Èçìåíèòü ãðóïïó"); // 6
-	studMenu->addMenuItem("Èçìåíèòü ïîë"); // 7
-	studMenu->addMenuItem("Èçìåíèòü ãîä  íà÷àëà îáó÷åíèÿ"); // 8
-	studMenu->addMenuItem("Èçìåíèòü íîìåð çà÷åòíîé êíèæêè"); // 9
-	studMenu->addMenuItem("Ïðîñìîòðåòü/èçìåíèòü óñïåâàåìîñòü"); // 10
+	menuOfStudents->addMenuItem("Выход"); // 0
+	menuOfStudents->addMenuItem("Изменить фамилию"); // 1 
+	menuOfStudents->addMenuItem("Изменить имя"); // 2
+	menuOfStudents->addMenuItem("Изменить отчество"); // 3
+	menuOfStudents->addMenuItem("Изменить дату рождения"); // 4
+	menuOfStudents->addMenuItem("Изменить год постулпения"); // 5
+	menuOfStudents->addMenuItem("Изменить факультет (институт)"); // 6
+	menuOfStudents->addMenuItem("Изменить группу"); // 7
+	menuOfStudents->addMenuItem("Изменить номер зачётной книжки"); // 8
+	menuOfStudents->addMenuItem("Изменить пол"); // 9
+	menuOfStudents->addMenuItem("Просмотреть/изменить успеваемость"); // 10
 	int selectedItem = -1;
-	ClassMenu* sexMenu = new ClassMenu("Ìåíþ ðåäàêòèðîâàíèÿ ïîëà ñòóäåíòà");
-	sexMenu->addMenuItem("Âûõîä"); // 0
-	sexMenu->addMenuItem("Ìóæñêîé"); // 1 
-	sexMenu->addMenuItem("Æåíñêèé"); // 2
-	sexMenu->addMenuItem("Íåîïðåäåëåí"); // 3
+	Menu<string>* MenuOfEditingSex = new Menu<string>("Меню редактирования пола студента");
+	MenuOfEditingSex->addMenuItem("Выход"); // 0
+	MenuOfEditingSex->addMenuItem("Мужской"); // 1 
+	MenuOfEditingSex->addMenuItem("Женский"); // 2
+	MenuOfEditingSex->addMenuItem("Боевовертолётный"); // 3
 	int sexItem = -1;
 	string str;
-	while (selectedItem != 0) {
-		printInfo();
+	/*while (selectedItem != 0) {
+		printData();
 		_getch();
 		selectedItem = studMenu->run();
 		switch (selectedItem)
@@ -224,6 +225,6 @@ void write2FileStudentData(int num) {
 	remove(filename.c_str());
 	rename("tmp.txt", filename.c_str());
 
-}
+}*/
 
 };
