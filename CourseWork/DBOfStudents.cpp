@@ -60,6 +60,8 @@ int main(){
     menu.addMenuItem("Zhopa");
     menu.addMenuItem("Ruka");
     menu.run();*/
-    //Student student;
+    Student student;
+    student.setDefaultData();
+    student.addStudentToFile();
 
 }

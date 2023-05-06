@@ -1,15 +1,16 @@
 ﻿#include "Student.h"
 #include "Menu.h"
+#include <fstream>
 
 Student::Student()
 {
 	nameOfFile = "database.bin";
-	inputValidation = new InputValidation();
+	editData = new InputValidation();
 }
 
 Student::~Student()
 {
-	delete inputValidation;
+	delete editData;
 }
 
 //Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook) :
@@ -90,11 +91,11 @@ void Student::editStudent() {
 	menuOfStudents->addMenuItem("Изменить дату рождения"); // 4
 	menuOfStudents->addMenuItem("Изменить год постулпения"); // 5
 	menuOfStudents->addMenuItem("Изменить факультет (институт)"); // 6
-	menuOfStudents->addMenuItem("Изменить кафедру");
-	menuOfStudents->addMenuItem("Изменить группу"); // 7
-	menuOfStudents->addMenuItem("Изменить номер зачётной книжки"); // 8
-	menuOfStudents->addMenuItem("Изменить пол"); // 9
-	menuOfStudents->addMenuItem("Просмотреть/изменить успеваемость"); // 10
+	menuOfStudents->addMenuItem("Изменить кафедру"); //7
+	menuOfStudents->addMenuItem("Изменить группу"); // 8
+	menuOfStudents->addMenuItem("Изменить номер зачётной книжки"); // 9
+	menuOfStudents->addMenuItem("Изменить пол"); // 10
+	menuOfStudents->addMenuItem("Просмотреть/изменить успеваемость"); // 11
 	int selectedItem = -1;
 	Menu<string>* MenuOfEditingSex = new Menu<string>("Меню редактирования пола студента");
 	MenuOfEditingSex->addMenuItem("Выход"); // 0
@@ -103,129 +104,166 @@ void Student::editStudent() {
 	MenuOfEditingSex->addMenuItem("Боевовертолётный"); // 3
 	int sexItem = -1;
 	string str;
-	/*while (selectedItem != 0) {
+	while (selectedItem != 0) {
 		printData();
 		_getch();
-		selectedItem = studMenu->run();
+		selectedItem = menuOfStudents->run();
 		switch (selectedItem)
 		{
 		case 1:
-			edit->clear(st.surName); edit->setLabel("Ââåäèòå ôàìèëèþ: ");
-			str = edit->getData(editType::onlyAlpha, 30).c_str();
-			strncpy_s(st.surName, str.c_str(), str.size());
+			editData->clear(lastName); editData->setLabel("Введите фамилию: ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str(); //почему нельзя убрать c_str
+			strncpy_s(lastName, str.c_str(), str.size());
 			break;
 		case 2:
-			edit->clear(st.name); edit->setLabel("Ââåäèòå èìÿ: ");
-			str = edit->getData(editType::onlyAlpha, 30).c_str();
-			strncpy_s(st.name, str.c_str(), str.size());
+			editData->clear(name); editData->setLabel("Введите имя: ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str();
+			strncpy_s(name, str.c_str(), str.size());
 			break;
 		case 3:
-			edit->clear(st.middleName); edit->setLabel("Ââåäèòå îò÷åñòâî: ");
-			str = edit->getData(editType::onlyAlpha, 30).c_str();
-			strncpy_s(st.middleName, str.c_str(), str.size());
+			editData->clear(patronymic); editData->setLabel("Введите отчество: ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str();
+			strncpy_s(patronymic, str.c_str(), str.size());
 			break;
 		case 4:
-			edit->clear(st.institute); edit->setLabel("Ââåäèòå èíñòèòóò: ");
-			str = edit->getData(editType::onlyAlpha, 30).c_str();
-			strncpy_s(st.institute, str.c_str(), str.size());
+			editData->clear(dateOfBirth); editData->setLabel("Введите дату рождения: ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str();
+			strncpy_s(dateOfBirth, str.c_str(), str.size());
 			break;
 		case 5:
-			edit->clear(st.department); edit->setLabel("Ââåäèòå êàôåäðó: ");
-			str = edit->getData(editType::onlyAlpha, 30).c_str();
-			strncpy_s(st.department, str.c_str(), str.size());
+			editData->clear(to_string(yearOfAdmission)); editData->setLabel("Введите год поступления: ");
+			yearOfAdmission = editData->getData(editType::onlyDigits, 2000, 2023);
 			break;
 		case 6:
-			edit->clear(st.group); edit->setLabel("Ââåäèòå ãðóïïó: ");
-			str = edit->getData(editType::onlyAlpha, 30).c_str();
-			strncpy_s(st.group, str.c_str(), str.size());
+			editData->clear(faculty); editData->setLabel("Введите факультет (институт): ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str();
+			strncpy_s(faculty, str.c_str(), str.size());
 			break;
 		case 7:
-
+			editData->clear(department); editData->setLabel("Введите кафедру: ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str();
+			strncpy_s(department, str.c_str(), str.size());
+		case 8:
+			editData->clear(group); editData->setLabel("Введите группу: ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str();
+			strncpy_s(group, str.c_str(), str.size());
+			break;
+		case 9:
+			editData->clear(numberOfrecordBook); editData->setLabel("Введите номер зачётной книжки: ");
+			str = editData->getData(editType::onlyAlpha, 30).c_str();
+			strncpy_s(numberOfrecordBook, str.c_str(), str.size());
+			break;
+		case 10:
 			while (sexItem != 0) {
-				sexItem = sexMenu->run();
-				if (sexItem == 1) { st.sex = sex::Men; sexItem = 0; }
-				if (sexItem == 2) { st.sex = sex::Women; sexItem = 0; }
-				if (sexItem == 3) { st.sex = sex::Any; sexItem = 0; }
+				sexItem = MenuOfEditingSex->run();
+				if (sexItem == 1) { sex = sex::man; sexItem = 0; }
+				if (sexItem == 2) { sex = sex::woman; sexItem = 0; }
+				if (sexItem == 3) { sex = sex::attackHelicopter; sexItem = 0; }
 			}
 
 			break;
-		case 8:
-			edit->clear(to_string(st.startYear));
-			edit->setLabel("Ââåäèòå ãîä íà÷àëà îáó÷åíèÿ: ");
-			st.startYear = edit->getData(editType::onlyDigit, 1940, 2012);
-			break;
+		// TODO case 11:
 		deafault:
 			break;
 		}
 	}
-	delete sexMenu;
-	delete studMenu;
+	delete MenuOfEditingSex;
+	delete menuOfStudents;
 
 }
 
-void addSt2File() {
+void Student::addStudentToFile() {
 	FILE* binaryFile;
-	fopen_s(&binaryFile, filename.c_str(), "a+");
-	fwrite(&st, sizeof(st), 1, binaryFile);
+	fopen_s(&binaryFile, nameOfFile.c_str(), "a+");
+	fwrite(lastName, sizeof(lastName), 1,binaryFile);
+	fwrite(name, sizeof(name), 1, binaryFile);
+	fwrite(patronymic, sizeof(patronymic), 1, binaryFile);
+	fwrite(dateOfBirth, sizeof(dateOfBirth), 1, binaryFile);
+	fwrite((char*)yearOfAdmission, sizeof(yearOfAdmission), 1, binaryFile);
+	fwrite(faculty, sizeof(faculty), 1, binaryFile);
+	fwrite(department, sizeof(department), 1, binaryFile);
+	fwrite(group, sizeof(group), 1, binaryFile);
+	fwrite(numberOfrecordBook, sizeof(numberOfrecordBook), 1, binaryFile);
+	fwrite((char*)sex, sizeof(sex), 1, binaryFile);
+	//fwrite((char*)sessions, sizeof(sessions), 1, binaryFile);
 	fclose(binaryFile);
+	/*ofstream fout(nameOfFile, ios::binary);
+	fout.write(lastName, sizeof(lastName));
+	fout.write(name, sizeof(name));
+	fout.write(patronymic, sizeof(patronymic));
+	fout.write(dateOfBirth, sizeof(dateOfBirth));
+	fout.write((char*)yearOfAdmission, sizeof(yearOfAdmission));
+	fout.write(faculty, sizeof(faculty));
+	fout.write(department, sizeof(department));
+	fout.write(group, sizeof(group));
+	fout.write(numberOfrecordBook, sizeof(numberOfrecordBook));
+	fout.write((char*)sex, sizeof(sex));
+	fout.write(lastName, sizeof(lastName));
+	fout.write((char*)sessions, sizeof(sessions));
+	fout.close();*/
 }
 
-int countRecords() {
+int Student::countNumberOfRecords() {
+	/*ifstream fin(nameOfFile, ios::binary);
+	fin.seekg(0, ios::end);
+	int size = fin.tellg();
+	fin.close();
+	return size / sizeof(size);*/
 	FILE* binaryFile;
-	fopen_s(&binaryFile, filename.c_str(), "r");
-	fseek(binaryFile, 0L, SEEK_END);
+	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
+	fseek(binaryFile, 0l, SEEK_END);
 	int size = ftell(binaryFile);
 	fclose(binaryFile);
-	return size / sizeof(st);
+	return size;// / sizeof(st);
 }
 
-void getShortInfoFromFile() {
+void Student::getShortInfoFromFile() {
 	system("cls");
-	cout << "Ñïèñîê äàííûõ î ñòóäåíòàõ: " << endl;
-	int size = countRecords();
+	cout << "список данных о студентах: " << endl;
+	int size = countNumberOfRecords();
 	FILE* binaryFile;
-	fopen_s(&binaryFile, filename.c_str(), "r");
+	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	for (int i = 0; i < size; i++) {
-		fread_s(&st, sizeof(st), sizeof(st), 1, binaryFile);
-		cout << i << ". " << st.surName << " " << st.name << " " << st.middleName << " " << st.group << endl;
+		fread_s(&st, sizeof(st), sizeof(st), 1, binaryfile);
+		cout << i << ". " << st.surname << " " << st.name << " " << st.middlename << " " << st.group << endl;
 	}
-	fclose(binaryFile);
+	fclose(binaryfile);
 	_getch();
 	edit->clear();
-	edit->setLabel("Ââåäèòå íîìåð èç ñïèñêà ÷òîáû ïîëó÷èòü ïîäðîáíóþ èíôîðìàöèþ î ñòóäåíòå. ");
-	int num = edit->getData(editType::onlyDigit, 0, size);
-	setStudentData(num);
-	editStudent();
-	write2FileStudentData(num);
+	edit->setlabel("ââåäèòå íîìåð èç ñïèñêà ÷òîáû ïîëó÷èòü ïîäðîáíóþ èíôîðìàöèþ î ñòóäåíòå. ");
+	int num = edit->getdata(edittype::onlydigit, 0, size);
+	setstudentdata(num);
+	editstudent();
+	write2filestudentdata(num);
 }
-
-void setStudentData(int num) {
-	FILE* binaryFile;
-	fopen_s(&binaryFile, filename.c_str(), "r");
-	fseek(binaryFile, num * sizeof(st), SEEK_SET);
-	fread_s(&st, sizeof(st), sizeof(st), 1, binaryFile);
-	fclose(binaryFile);
-}
-void write2FileStudentData(int num) {
-	int size = countRecords();
-
-	FILE* binaryFile;
-	FILE* tmpFile;
-	fopen_s(&binaryFile, filename.c_str(), "r");
-	fopen_s(&tmpFile, "tmp.txt", "w+");
-	StudentNode tmp_st;
-	for (int i = 0; i < size; i++) {
-		fread_s(&tmp_st, sizeof(tmp_st), sizeof(tmp_st), 1, binaryFile);
-		if (i == num)
-			fwrite(&st, sizeof(st), 1, tmpFile);
-		else
-			fwrite(&tmp_st, sizeof(tmp_st), 1, tmpFile);
-	}
-	fclose(binaryFile);
-	fclose(tmpFile);
-	remove(filename.c_str());
-	rename("tmp.txt", filename.c_str());
-
-}*/
-
-};
+//
+//void setstudentdata(int num) {
+//	file* binaryfile;
+//	fopen_s(&binaryfile, filename.c_str(), "r");
+//	fseek(binaryfile, num * sizeof(st), seek_set);
+//	fread_s(&st, sizeof(st), sizeof(st), 1, binaryfile);
+//	fclose(binaryfile);
+//}
+//void write2filestudentdata(int num) {
+//	int size = countrecords();
+//
+//	file* binaryfile;
+//	file* tmpfile;
+//	fopen_s(&binaryfile, filename.c_str(), "r");
+//	fopen_s(&tmpfile, "tmp.txt", "w+");
+//	studentnode tmp_st;
+//	for (int i = 0; i < size; i++) {
+//		fread_s(&tmp_st, sizeof(tmp_st), sizeof(tmp_st), 1, binaryfile);
+//		if (i == num)
+//			fwrite(&st, sizeof(st), 1, tmpfile);
+//		else
+//			fwrite(&tmp_st, sizeof(tmp_st), 1, tmpfile);
+//	}
+//	fclose(binaryfile);
+//	fclose(tmpfile);
+//	remove(filename.c_str());
+//	rename("tmp.txt", filename.c_str());
+//
+//}
+//
+//};

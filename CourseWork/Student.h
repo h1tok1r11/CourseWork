@@ -21,7 +21,7 @@ private:
 	char numberOfrecordBook[10];
 	//RecordBook recordBook;
 	Sessions sessions[9][10];
-	InputValidation* inputValidation;
+	InputValidation* editData;
 public:
 	Student();
 	~Student();
@@ -38,4 +38,7 @@ public:
 	void setDefaultData();
 	void printData();
 	void editStudent();
+	void addStudentToFile();
+	int countNumberOfRecords();
+	void getShortInfoFromFile();
 };

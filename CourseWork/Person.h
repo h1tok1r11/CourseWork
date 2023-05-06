@@ -17,7 +17,7 @@ protected:
 	string lastName;
 	string patronymic;*/
 	//DateOfBirth dateOfBirth;
-	char dateOfBirth[10];
+	char dateOfBirth[15];
 	sex sex;
 	//enum sex : char { man, woman, attackHelicopter } sex;
 public:
