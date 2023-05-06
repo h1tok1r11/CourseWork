@@ -1,26 +1,39 @@
-#include "DateOfBirth.h"
-#include "RecordBook.h"
-#include "Person.h"
+//#include "DateOfBirth.h"
+//#include "RecordBook.h"
+//#include "Person.h"
 #include "InputValidation.h"
 #pragma once
 
+enum sex : char { man, woman, attackHelicopter };
+enum markType : int { fail, pass, bad, satisfactory, good, excellent };
+
+
 struct Sessions {
 	string nameOfSubject;
-	enum markType;
+	enum markType markType;
 	bool isEmpty;
 };
 
-class Student : public Person
+struct StudentNode  
+{
+	char lastName[30];
+	char name[20];
+	char patronymic[30];
+	char dateOfBirthString[15];
+	int yearOfAdmission;
+	char faculty[30];
+	char department[30];
+	char group[15];	
+	char numberOfrecordBook[10];
+	enum sex sex;
+	Sessions sessions[9][10];
+};
+
+class Student// : public Person
 {
 private:
 	string nameOfFile;
-	unsigned short yearOfAdmission;
-	char faculty[30];
-	char department[30];
-	char group[15];
-	char numberOfrecordBook[10];
-	//RecordBook recordBook;
-	Sessions sessions[9][10];
+	StudentNode studentData;
 	InputValidation* editData;
 public:
 	Student();
@@ -38,7 +51,9 @@ public:
 	void setDefaultData();
 	void printData();
 	void editStudent();
+	void setStudentData(int num);
 	void addStudentToFile();
+	void writeToFileStudentData(int num);
 	int countNumberOfRecords();
 	void getShortInfoFromFile();
 };

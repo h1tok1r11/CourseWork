@@ -11,7 +11,7 @@ class RecordBook
 {
 private:
 	unsigned short semester;
-	Subject subjects[10];
+	//Subject subjects[10];
 	
 	//List<Session> listOfSessions;
 };

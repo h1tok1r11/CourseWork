@@ -63,5 +63,8 @@ int main(){
     Student student;
     student.setDefaultData();
     student.addStudentToFile();
-
+    student.countNumberOfRecords();
+    student.getShortInfoFromFile();
+    student.setStudentData(1);
+    student.writeToFileStudentData(2);
 }
