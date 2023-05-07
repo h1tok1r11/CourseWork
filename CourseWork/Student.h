@@ -40,7 +40,16 @@ public:
 	~Student();
 	//Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook);
 	//static bool findStudentByRecordBook(string recordBook, List<Student> students);
-	bool setYearOfAdmission(unsigned short yearOfAdmission);
+	void setLastName();
+	void setName();
+	void setPatronymic();
+	void setDateOfBirth();
+	void setYearOfAdmission();
+	void setFaculty();
+	void setDepartment();
+	void setGroup();
+	void setNumberOfRecordBook();
+	void setSex(string header);
 	/*unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
 	void setFaculty(string faculty);
 	string getFaculty() { return faculty; }

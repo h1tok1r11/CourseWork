@@ -26,18 +26,75 @@ string tmpstr;
 //	for (auto p = std::begin(students);)
 //}
 
-bool Student::setYearOfAdmission(unsigned short yearOfAdmission)
-{
+void Student::setLastName() {
+	editData->clear(studentData.lastName); editData->setLabel("Введите фамилию: ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str(); //почему нельзя убрать c_str
+	strncpy_s(studentData.lastName, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setName() {
+	editData->clear(studentData.name); editData->setLabel("Введите имя: ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	strncpy_s(studentData.name, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setPatronymic() {
+	editData->clear(studentData.patronymic); editData->setLabel("Введите отчество: ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	strncpy_s(studentData.patronymic, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setDateOfBirth() {
+	editData->clear(studentData.dateOfBirthString); editData->setLabel("Введите дату рождения: ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	strncpy_s(studentData.dateOfBirthString, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setYearOfAdmission(){
 	editData->clear(to_string(studentData.yearOfAdmission)); editData->setLabel("Введите год поступления: ");
 	studentData.yearOfAdmission = editData->getData(editType::onlyDigits, 2000, 2023);
-	/*if (not(yearOfAdmission > 2000 and yearOfAdmission < 2023))
-	{
-		cout << "!!!Вы ввели неверный год поступления!!!" << endl << " (не в диапазоне от 2000 до 2023)" << endl;
-		return false;
-	}
-	studentData.yearOfAdmission = yearOfAdmission;
-	return true;*/
 }
+
+void Student::setFaculty() {
+	editData->clear(studentData.faculty); editData->setLabel("Введите факультет (институт): ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	strncpy_s(studentData.faculty, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setDepartment() {
+	editData->clear(studentData.department); editData->setLabel("Введите кафедру: ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	strncpy_s(studentData.department, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setGroup() {
+	editData->clear(studentData.group); editData->setLabel("Введите группу: ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	strncpy_s(studentData.group, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setNumberOfRecordBook() {
+	editData->clear(studentData.numberOfrecordBook); editData->setLabel("Введите номер зачётной книжки: ");
+	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	strncpy_s(studentData.numberOfrecordBook, tmpstr.c_str(), tmpstr.size());
+}
+
+void Student::setSex(string header) {
+	int sexItem = -1;
+	Menu<string>* MenuOfEditingSex = new Menu<string>(header);
+	MenuOfEditingSex->addMenuItem("Выход"); // 0
+	MenuOfEditingSex->addMenuItem("Мужской"); // 1 
+	MenuOfEditingSex->addMenuItem("Женский"); // 2
+	MenuOfEditingSex->addMenuItem("Боевовертолётный"); // 3
+	while (sexItem != 0) {
+		sexItem = MenuOfEditingSex->run();
+		if (sexItem == 1) { studentData.sex = sex::man; sexItem = 0; }
+		if (sexItem == 2) { studentData.sex = sex::woman; sexItem = 0; }
+		if (sexItem == 3) { studentData.sex = sex::attackHelicopter; sexItem = 0; }
+	}
+	delete MenuOfEditingSex;
+}
+
 //
 //void Student::setFaculty(string faculty)
 //{
@@ -147,6 +204,7 @@ void Student::editStudent() {
 			editData->clear(studentData.department); editData->setLabel("Введите кафедру: ");
 			str = editData->getData(editType::onlyAlpha, 30).c_str();
 			strncpy_s(studentData.department, str.c_str(), str.size());
+			break;
 		case 8:
 			editData->clear(studentData.group); editData->setLabel("Введите группу: ");
 			str = editData->getData(editType::onlyAlpha, 30).c_str();
