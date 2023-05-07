@@ -69,9 +69,11 @@ public:
 		data = _data;
 	}
 
+
 	string getData(enum class editType et) {
 		char ch = 0;
 		cout << label << endl << data;
+
 		while (ch != 13) {
 			ch = _getch();
 			if (ch == 8) {

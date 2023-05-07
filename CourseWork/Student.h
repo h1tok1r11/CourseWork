@@ -26,7 +26,7 @@ struct StudentNode
 	char group[15];	
 	char numberOfrecordBook[10];
 	enum sex sex;
-	Sessions sessions[9][10];
+	//Sessions sessions[9][10];
 };
 
 class Student// : public Person
@@ -40,8 +40,8 @@ public:
 	~Student();
 	//Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook);
 	//static bool findStudentByRecordBook(string recordBook, List<Student> students);
-	/*bool setYearOfAdmission(unsigned short yearOfAdmission);
-	unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
+	bool setYearOfAdmission(unsigned short yearOfAdmission);
+	/*unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
 	void setFaculty(string faculty);
 	string getFaculty() { return faculty; }
 	void setDepartment(string department);
@@ -51,9 +51,11 @@ public:
 	void setDefaultData();
 	void printData();
 	void editStudent();
+	void setStudentData();
 	void setStudentData(int num);
 	void addStudentToFile();
-	void writeToFileStudentData(int num);
+	void writeToFileStudentData(int	num);
+	void deleteFromFileStudentData(int num);
 	int countNumberOfRecords();
 	void getShortInfoFromFile();
 };

@@ -14,6 +14,7 @@ Student::~Student()
 	delete editData;
 }
 
+string tmpstr;
 //Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook) :
 //	yearOfAdmission(yearOfAdmission), faculty(faculty), department(department), group(group), numberOfrecordBook(numberOfrecordBook){}
 
@@ -25,16 +26,18 @@ Student::~Student()
 //	for (auto p = std::begin(students);)
 //}
 
-//bool Student::setYearOfAdmission(unsigned short yearOfAdmission)
-//{
-//	if (not(yearOfAdmission > 2000 and yearOfAdmission < 2023))
-//	{
-//		cout << "!!!Вы ввели неверный год поступления!!!" << endl << " (не в диапазоне от 2000 до 2023)" << endl;
-//		return false;
-//	}
-//	this->yearOfAdmission = yearOfAdmission;
-//	return true;
-//}
+bool Student::setYearOfAdmission(unsigned short yearOfAdmission)
+{
+	editData->clear(to_string(studentData.yearOfAdmission)); editData->setLabel("Введите год поступления: ");
+	studentData.yearOfAdmission = editData->getData(editType::onlyDigits, 2000, 2023);
+	/*if (not(yearOfAdmission > 2000 and yearOfAdmission < 2023))
+	{
+		cout << "!!!Вы ввели неверный год поступления!!!" << endl << " (не в диапазоне от 2000 до 2023)" << endl;
+		return false;
+	}
+	studentData.yearOfAdmission = yearOfAdmission;
+	return true;*/
+}
 //
 //void Student::setFaculty(string faculty)
 //{
@@ -53,30 +56,29 @@ Student::~Student()
 
 void Student::setDefaultData()
 {
-	strcpy_s(studentData.name, "Борис");
 	strcpy_s(studentData.lastName, "Бритва");
+	strcpy_s(studentData.name, "Борис");
 	strcpy_s(studentData.patronymic, "Анатолич");
 	strcpy_s(studentData.dateOfBirthString, "28.02.1980");
-	studentData.sex = sex::attackHelicopter;
-	enum sex : char { man, woman, attackHelicopter };
 	studentData.yearOfAdmission = 2000;
 	strcpy_s(studentData.faculty, "ИКБ");
 	strcpy_s(studentData.department, "Информационная безопасность");
 	strcpy_s(studentData.group, "БББО-05-22");
 	strcpy_s(studentData.numberOfrecordBook, "1055А67");
-	for (int i = 0; i < 9; i++)
+	studentData.sex = sex::attackHelicopter;
+	/*for (int i = 0; i < 9; i++)
 		for (int j = 0; j < 10; j++) {
 			studentData.sessions[i][j].isEmpty = true;
-		}
+		}*/
 }
 
 void Student::printData() {
 	cout << endl << " _________Информация о студенте:_________" << endl;
-	cout << "Фамилия: " << studentData.lastName << " Имя: " << studentData.name << " Отчество: " << studentData.patronymic << endl <<
-		"Дата рождения: " << studentData.dateOfBirthString << endl << "Год поступления: " << studentData.yearOfAdmission << endl <<
+	cout << "Фамилия: " << studentData.lastName << endl << "Имя: " << studentData.name << endl <<
+		"Отчество: " << studentData.patronymic << endl << "Дата рождения: " << studentData.dateOfBirthString << endl << "Год поступления: " << studentData.yearOfAdmission << endl <<
 		"Факультет (институт): " << studentData.faculty << endl << "Кафедра: " << studentData.department << endl <<
 		"Группа: " << studentData.group << endl << "Номер зачётной книжки: " << studentData.numberOfrecordBook << endl;
-	cout << " Пол: ";
+	cout << "Пол: ";
 	if (studentData.sex == sex::man) { cout << "Человек " << endl; }
 	if (studentData.sex == sex::woman) { cout << "Женщина " << endl; }
 	if (studentData.sex == sex::attackHelicopter) { cout << "Боевой вертолёт " << endl; }
@@ -174,6 +176,36 @@ void Student::editStudent() {
 
 }
 
+void Student::setStudentData() {
+	
+	//editData->clear(studentData.lastName); editData->setLabel("Введите фамилию: ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str(); //почему нельзя убрать c_str
+	//strncpy_s(studentData.lastName, str.c_str(), str.size());
+	//editData->clear(studentData.name); editData->setLabel("Введите имя: ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str();
+	//strncpy_s(studentData.name, str.c_str(), str.size());
+	//editData->clear(studentData.patronymic); editData->setLabel("Введите отчество: ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str();
+	//strncpy_s(studentData.patronymic, str.c_str(), str.size());
+	//editData->clear(studentData.dateOfBirthString); editData->setLabel("Введите дату рождения: ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str();
+	//strncpy_s(studentData.dateOfBirthString, str.c_str(), str.size());
+	//editData->clear(to_string(studentData.yearOfAdmission)); editData->setLabel("Введите год поступления: ");
+	//studentData.yearOfAdmission = editData->getData(editType::onlyDigits, 2000, 2023);
+	//editData->clear(studentData.faculty); editData->setLabel("Введите факультет (институт): ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str();
+	//strncpy_s(studentData.faculty, str.c_str(), str.size());
+	//editData->clear(studentData.department); editData->setLabel("Введите кафедру: ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str();
+	//strncpy_s(studentData.department, str.c_str(), str.size());
+	//editData->clear(studentData.group); editData->setLabel("Введите группу: ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str();
+	//strncpy_s(studentData.group, str.c_str(), str.size());
+	//editData->clear(studentData.numberOfrecordBook); editData->setLabel("Введите номер зачётной книжки: ");
+	//str = editData->getData(editType::onlyAlpha, 30).c_str();
+	//strncpy_s(studentData.numberOfrecordBook, str.c_str(), str.size());
+	//}
+}
 
 void Student::setStudentData(int num) {
 	FILE* binaryFile;
@@ -206,7 +238,6 @@ void Student::addStudentToFile() {
 
 void Student::writeToFileStudentData(int num) {
 	int size = countNumberOfRecords();
-
 	FILE* binaryFile;
 	FILE* tmpFile;
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
@@ -214,7 +245,7 @@ void Student::writeToFileStudentData(int num) {
 	StudentNode tmpStudentData;
 	for (int i = 0; i < size; i++) {
 		fread_s(&tmpStudentData, sizeof(tmpStudentData), sizeof(tmpStudentData), 1, binaryFile);
-		if (i == num)
+		if (i + 1 == num)
 			fwrite(&studentData, sizeof(studentData), 1, tmpFile);
 		else
 			fwrite(&tmpStudentData, sizeof(tmpStudentData), 1, tmpFile);
@@ -224,6 +255,24 @@ void Student::writeToFileStudentData(int num) {
 	remove(nameOfFile.c_str());
 	rename("tmp.txt", nameOfFile.c_str());
 
+}
+
+void Student::deleteFromFileStudentData(int num){
+	int size = countNumberOfRecords();
+	FILE* binaryFile;
+	FILE* tmpFile;
+	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
+	fopen_s(&tmpFile, "tmp.txt", "w+");
+	StudentNode tmpStudentData;
+	for (int i = 1; i < size; i++) {
+		fread_s(&tmpStudentData, sizeof(tmpStudentData), sizeof(tmpStudentData), 1, binaryFile);
+		if (i != num)
+			fwrite(&tmpStudentData, sizeof(tmpStudentData), 1, tmpFile);
+	}
+	fclose(binaryFile);
+	fclose(tmpFile);
+	remove(nameOfFile.c_str());
+	rename("tmp.txt", nameOfFile.c_str());
 }
 
 int Student::countNumberOfRecords() {
@@ -240,7 +289,7 @@ int Student::countNumberOfRecords() {
 	return size / sizeof(studentData);
 }
 
-void Student::getShortInfoFromFile() {
+void Student::getShortInfoFromFile() {	
 	system("cls");
 	cout << "Список данных о студентах: " << endl;
 	int size = countNumberOfRecords();
@@ -248,12 +297,13 @@ void Student::getShortInfoFromFile() {
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	for (int i = 0; i < size; i++) {
 		fread_s(&studentData, sizeof(studentData), sizeof(studentData), 1, binaryFile);
-		cout << i << ". " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
+		cout << i + 1; printData();
+		//cout << i << ". " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
 	}
 	fclose(binaryFile);
 	_getch();
 	editData->clear();
-	editData->setLabel("введите номер из списка чтобы получить подробную информацию о студенте. ");
+	editData->setLabel("Введите номер из списка чтобы получить подробную информацию о студенте. ");
 	int num = editData->getData(editType::onlyDigits, 0, size);
 	setStudentData(num);
 	editStudent();
