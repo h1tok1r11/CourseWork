@@ -21,7 +21,7 @@ public:
 		label = "";
 		data = "";
 	}
-	void setLabel(string _label = "Èìÿ") {
+	void setLabel(string _label = "") {
 		if (_label.length() > 1)
 			this->label = _label;
 		else

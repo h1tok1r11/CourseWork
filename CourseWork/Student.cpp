@@ -165,7 +165,7 @@ void Student::setDefaultData3()
 }
 
 void Student::printData() {
-	cout << endl << " _________Информация о студенте:_________" << endl;
+	cout << endl << "_________Информация о студенте:_________" << endl;
 	cout << "Фамилия: " << studentData.lastName << endl << "Имя: " << studentData.name << endl <<
 		"Отчество: " << studentData.patronymic << endl << "Дата рождения: " << studentData.dateOfBirthString << endl << "Год поступления: " << studentData.yearOfAdmission << endl <<
 		"Факультет (институт): " << studentData.faculty << endl << "Кафедра: " << studentData.department << endl <<
@@ -174,6 +174,7 @@ void Student::printData() {
 	if (studentData.sex == sex::man) { cout << "Человек " << endl; }
 	if (studentData.sex == sex::woman) { cout << "Женщина " << endl; }
 	if (studentData.sex == sex::attackHelicopter) { cout << "Боевой вертолёт " << endl; }
+	cout << "________________________________________" << endl << endl;
 }
 
 void Student::editStudent() {
@@ -342,7 +343,7 @@ void Student::getShortInfoFromFile() {
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	for (int i = 0; i < size; i++) {
 		fread_s(&studentData, sizeof(studentData), sizeof(studentData), 1, binaryFile);
-		cout << i + 1; printData();
+		cout << i + 1 << ')'; printData();
 		//cout << i << ". " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
 	}
 	fclose(binaryFile);

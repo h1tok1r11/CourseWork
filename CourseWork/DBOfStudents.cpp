@@ -68,9 +68,10 @@ int main(){
     student.setDefaultData3();
     student.addStudentToFile();*/
     //student.addStudentToFile();
-    //student.getShortInfoFromFile();
-    //student.setStudentData(1);
     //student.setStudentData();
+    //student.addStudentToFile();
+    student.getShortInfoFromFile();
+    //student.setStudentData(1);
     //student.writeToFileStudentData(2);
     //student.deleteFromFileStudentData(2);
     student.bubbleSortMarksInDescendingOrder();
