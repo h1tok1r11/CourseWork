@@ -111,18 +111,53 @@ void Student::setSex(string header) {
 //	this->group = group;
 //}
 
-void Student::setDefaultData()
+void Student::setDefaultData1()
 {
 	strcpy_s(studentData.lastName, "Бритва");
 	strcpy_s(studentData.name, "Борис");
 	strcpy_s(studentData.patronymic, "Анатолич");
 	strcpy_s(studentData.dateOfBirthString, "28.02.1980");
-	studentData.yearOfAdmission = 2000;
+	studentData.yearOfAdmission = 2008;
 	strcpy_s(studentData.faculty, "ИКБ");
 	strcpy_s(studentData.department, "Информационная безопасность");
 	strcpy_s(studentData.group, "БББО-05-22");
 	strcpy_s(studentData.numberOfrecordBook, "1055А67");
 	studentData.sex = sex::attackHelicopter;
+	/*for (int i = 0; i < 9; i++)
+		for (int j = 0; j < 10; j++) {
+			studentData.sessions[i][j].isEmpty = true;
+		}*/
+}
+
+void Student::setDefaultData2()
+{
+	strcpy_s(studentData.lastName, "Скальпель");
+	strcpy_s(studentData.name, "Антон");
+	strcpy_s(studentData.patronymic, "Генадич");
+	strcpy_s(studentData.dateOfBirthString, "27.03.1984");
+	studentData.yearOfAdmission = 2018;
+	strcpy_s(studentData.faculty, "ИКБ");
+	strcpy_s(studentData.department, "Информационная безопасность");
+	strcpy_s(studentData.group, "БББО-05-22");
+	strcpy_s(studentData.numberOfrecordBook, "1034А77");
+	studentData.sex = sex::man;
+	/*for (int i = 0; i < 9; i++)
+		for (int j = 0; j < 10; j++) {
+			studentData.sessions[i][j].isEmpty = true;
+		}*/
+}
+void Student::setDefaultData3()
+{
+	strcpy_s(studentData.lastName, "Резьба");
+	strcpy_s(studentData.name, "Жанна");
+	strcpy_s(studentData.patronymic, "Санна");
+	strcpy_s(studentData.dateOfBirthString, "23.05.1999");
+	studentData.yearOfAdmission = 2028;
+	strcpy_s(studentData.faculty, "ИКБ");
+	strcpy_s(studentData.department, "Информационная безопасность");
+	strcpy_s(studentData.group, "БББО-05-22");
+	strcpy_s(studentData.numberOfrecordBook, "1983А56");
+	studentData.sex = sex::woman;
 	/*for (int i = 0; i < 9; i++)
 		for (int j = 0; j < 10; j++) {
 			studentData.sessions[i][j].isEmpty = true;
@@ -142,7 +177,7 @@ void Student::printData() {
 }
 
 void Student::editStudent() {
-	Student::setDefaultData();
+	Student::setDefaultData1();
 	Menu<string>* menuOfStudents = new Menu<string>("Меню редактирования студента");
 
 	menuOfStudents->addMenuItem("Выход"); // 0
@@ -335,7 +370,7 @@ void Student::clearStudentNode() {
 void Student::bubbleSortMarksInDescendingOrder()
 {
 	List<StudentNode> ListOfStudents;
-	int countOfItems = countNumberOfRecords();
+	int countOfItems = countNumberOfRecords();	
 	for (int i = 0; i < countOfItems; i++)
 	{
 		setStudentNodeFromFile(i);
@@ -344,11 +379,17 @@ void Student::bubbleSortMarksInDescendingOrder()
 
 	for (int i = 0; i < countOfItems; i++) {
 		for (int j = 0; j < countOfItems - 1; j++) {
-			if (ListOfStudents[j].yearOfAdmission > ListOfStudents[j + 1].yearOfAdmission) {
-				int tmp = ListOfStudents[j].yearOfAdmission;
-				ListOfStudents[j].yearOfAdmission = ListOfStudents[j + 1].yearOfAdmission;
-				ListOfStudents[j + 1].yearOfAdmission = tmp;
+			if (ListOfStudents[j].yearOfAdmission < ListOfStudents[j + 1].yearOfAdmission) {
+				StudentNode tmp = ListOfStudents[j];
+				ListOfStudents[j] = ListOfStudents[j + 1];
+				ListOfStudents[j + 1] = tmp;
 			}
 		}
+	}
+	for (int i = 0; i < countOfItems; i++)
+	{
+		studentData = ListOfStudents[i];
+		deleteFromFileStudentData(0);
+		addStudentToFile();
 	}
 }

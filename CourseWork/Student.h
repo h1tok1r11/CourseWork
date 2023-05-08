@@ -57,7 +57,9 @@ public:
 	string getDepartment() { return department; }
 	void setGroup(string group);
 	string getgroup() { return group; }*/
-	void setDefaultData();
+	void setDefaultData1();
+	void setDefaultData2();
+	void setDefaultData3();
 	void printData();
 	void editStudent();
 	void setStudentData();

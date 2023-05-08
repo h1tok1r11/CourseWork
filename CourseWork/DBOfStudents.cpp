@@ -61,11 +61,17 @@ int main(){
     menu.addMenuItem("Ruka");
     menu.run();*/
     Student student;
-    student.setDefaultData();
+    /*student.setDefaultData1();
+    student.addStudentToFile();
+    student.setDefaultData2();
+    student.addStudentToFile();
+    student.setDefaultData3();
+    student.addStudentToFile();*/
     //student.addStudentToFile();
     //student.getShortInfoFromFile();
     //student.setStudentData(1);
-    student.setStudentData();
+    //student.setStudentData();
     //student.writeToFileStudentData(2);
     //student.deleteFromFileStudentData(2);
+    student.bubbleSortMarksInDescendingOrder();
 }
