@@ -61,11 +61,12 @@ public:
 	void printData();
 	void editStudent();
 	void setStudentData();
-	void setStudentData(int num);
+	void setStudentNodeFromFile(int num);
 	void addStudentToFile();
 	void writeToFileStudentData(int	num);
 	void deleteFromFileStudentData(int num);
 	int countNumberOfRecords();
 	void getShortInfoFromFile();
 	void clearStudentNode();
+	void bubbleSortMarksInDescendingOrder();
 };

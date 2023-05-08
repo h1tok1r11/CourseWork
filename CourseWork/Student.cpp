@@ -217,7 +217,7 @@ void Student::setStudentData() {
 	setSex("Меню бинаризации");
 }
 
-void Student::setStudentData(int num) {
+void Student::setStudentNodeFromFile(int num) {
 	FILE* binaryFile;
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	fseek(binaryFile, num * sizeof(studentData), SEEK_SET);
@@ -315,7 +315,7 @@ void Student::getShortInfoFromFile() {
 	editData->clear();
 	editData->setLabel("Введите номер из списка чтобы получить подробную информацию о студенте. ");
 	int num = editData->getData(editType::onlyDigits, 0, size);
-	setStudentData(num);
+	setStudentNodeFromFile(num);
 	editStudent();
 	writeToFileStudentData(num);
 }
@@ -330,4 +330,25 @@ void Student::clearStudentNode() {
 	strcpy_s(studentData.department, "");
 	strcpy_s(studentData.group, "");
 	strcpy_s(studentData.numberOfrecordBook, "");
+}
+
+void Student::bubbleSortMarksInDescendingOrder()
+{
+	List<StudentNode> ListOfStudents;
+	int countOfItems = countNumberOfRecords();
+	for (int i = 0; i < countOfItems; i++)
+	{
+		setStudentNodeFromFile(i);
+		ListOfStudents.push_back(studentData);
+	}
+
+	for (int i = 0; i < countOfItems; i++) {
+		for (int j = 0; j < countOfItems - 1; j++) {
+			if (ListOfStudents[j].yearOfAdmission > ListOfStudents[j + 1].yearOfAdmission) {
+				int tmp = ListOfStudents[j].yearOfAdmission;
+				ListOfStudents[j].yearOfAdmission = ListOfStudents[j + 1].yearOfAdmission;
+				ListOfStudents[j + 1].yearOfAdmission = tmp;
+			}
+		}
+	}
 }
