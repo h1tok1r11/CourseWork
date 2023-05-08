@@ -30,14 +30,14 @@ inline List<T>::List()
 {
 	Size = 0;
 	pHead = pTail = nullptr;
-	std::cout << "Вызвался конструктор" << std::endl;
+	//std::cout << "Вызвался конструктор" << std::endl;
 }
  
 template<typename T>
 inline List<T>::~List()
 {
 	clear();
-	std::cout << "Вызвался деструктор" << std::endl;
+	//std::cout << "Вызвался деструктор" << std::endl;
 }
 
 //template <typename T>

@@ -179,7 +179,7 @@ void Student::printData() {
 
 void Student::editStudent() {
 	Student::setDefaultData1();
-	Menu<string>* menuOfStudents = new Menu<string>("Меню редактирования студента");
+	Menu<string>* menuOfStudents = new Menu<string>("___Меню редактирования студента___");
 
 	menuOfStudents->addMenuItem("Выход"); // 0
 	menuOfStudents->addMenuItem("Изменить фамилию"); // 1 
@@ -196,6 +196,7 @@ void Student::editStudent() {
 	int selectedItem = -1;
 	while (selectedItem != 0) {
 		printData();
+		cout << "Нажмите любую клавишу" << endl;
 		_getch();
 		selectedItem = menuOfStudents->run();
 		switch (selectedItem)
@@ -347,6 +348,7 @@ void Student::getShortInfoFromFile() {
 		//cout << i << ". " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
 	}
 	fclose(binaryFile);
+	cout << "Нажмите любую клавишу" << endl;
 	_getch();
 	editData->clear();
 	editData->setLabel("Введите номер из списка чтобы получить подробную информацию о студенте. ");

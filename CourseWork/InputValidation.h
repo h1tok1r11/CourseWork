@@ -108,7 +108,8 @@ public:
 			if (isStringOfDigit(data))
 				num = atoi(data.c_str());
 			if (not (num >= min and num <= max)) {
-				cout << endl << "??????: ????? ??????? ?? ?????: " << num << " ??????? ?? ????????? (" << min << "; " << max << ") ";
+				cout << endl << "!!!ÎØÈÁÊÀ!!!" << endl << "×èñëî, êîòîğîå âû ââåëè : " << "\"" << num << "\"" << " âûõîäèò èç äèàïàçîíà(" << min << "; " << max << ") " << endl;
+				cout << "Íàæìèòå ëşáóş êëàâèøó" << endl; _getch(); system("cls");
 				getData(et, min, max);
 			}
 			if (isStringOfDigit(data))

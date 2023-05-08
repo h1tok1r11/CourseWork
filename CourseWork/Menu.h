@@ -36,7 +36,7 @@ public:
 		//	cout << i << ". " << items.getItem(i) << endl;
 		//}
 		items.printItems();
-		cout << downTitle << endl;
+		cout << downTitle;
 	}
 	int run() {
 		draw();
