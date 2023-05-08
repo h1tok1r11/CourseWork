@@ -21,8 +21,8 @@ public:
 		//upTitle =  _upTitle;
 	}
 
-	Menu() : Menu("Just trash") {
-		downTitle = "Another trash";
+	Menu() : Menu("Header") {
+		downTitle = "Bottom header";
 	}
 
 	void addMenuItem(string _item) {
@@ -41,7 +41,7 @@ public:
 	int run() {
 		draw();
 		InputValidation* cl = new InputValidation;
-		cl->setLabel("Input name");
+		cl->setLabel("");
 		int min = 0, max = items.getSize();
 		int selectItem = cl->getData(editType::onlyDigits, min, max);
 		delete cl;

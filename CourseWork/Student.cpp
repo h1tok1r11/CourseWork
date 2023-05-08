@@ -204,6 +204,7 @@ void Student::editStudent() {
 }
 
 void Student::setStudentData() {
+	clearStudentNode();
 	setLastName();
 	setName();
 	setPatronymic();
@@ -317,4 +318,16 @@ void Student::getShortInfoFromFile() {
 	setStudentData(num);
 	editStudent();
 	writeToFileStudentData(num);
+}
+
+void Student::clearStudentNode() {
+	strcpy_s(studentData.lastName, "");
+	strcpy_s(studentData.name, "");
+	strcpy_s(studentData.patronymic, "");
+	strcpy_s(studentData.dateOfBirthString, "");
+	studentData.yearOfAdmission = 0;
+	strcpy_s(studentData.faculty, "");
+	strcpy_s(studentData.department, "");
+	strcpy_s(studentData.group, "");
+	strcpy_s(studentData.numberOfrecordBook, "");
 }

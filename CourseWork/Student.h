@@ -67,4 +67,5 @@ public:
 	void deleteFromFileStudentData(int num);
 	int countNumberOfRecords();
 	void getShortInfoFromFile();
+	void clearStudentNode();
 };
