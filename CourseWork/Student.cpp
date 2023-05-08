@@ -204,34 +204,16 @@ void Student::editStudent() {
 }
 
 void Student::setStudentData() {
-	
-	//editData->clear(studentData.lastName); editData->setLabel("Введите фамилию: ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str(); //почему нельзя убрать c_str
-	//strncpy_s(studentData.lastName, str.c_str(), str.size());
-	//editData->clear(studentData.name); editData->setLabel("Введите имя: ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str();
-	//strncpy_s(studentData.name, str.c_str(), str.size());
-	//editData->clear(studentData.patronymic); editData->setLabel("Введите отчество: ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str();
-	//strncpy_s(studentData.patronymic, str.c_str(), str.size());
-	//editData->clear(studentData.dateOfBirthString); editData->setLabel("Введите дату рождения: ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str();
-	//strncpy_s(studentData.dateOfBirthString, str.c_str(), str.size());
-	//editData->clear(to_string(studentData.yearOfAdmission)); editData->setLabel("Введите год поступления: ");
-	//studentData.yearOfAdmission = editData->getData(editType::onlyDigits, 2000, 2023);
-	//editData->clear(studentData.faculty); editData->setLabel("Введите факультет (институт): ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str();
-	//strncpy_s(studentData.faculty, str.c_str(), str.size());
-	//editData->clear(studentData.department); editData->setLabel("Введите кафедру: ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str();
-	//strncpy_s(studentData.department, str.c_str(), str.size());
-	//editData->clear(studentData.group); editData->setLabel("Введите группу: ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str();
-	//strncpy_s(studentData.group, str.c_str(), str.size());
-	//editData->clear(studentData.numberOfrecordBook); editData->setLabel("Введите номер зачётной книжки: ");
-	//str = editData->getData(editType::onlyAlpha, 30).c_str();
-	//strncpy_s(studentData.numberOfrecordBook, str.c_str(), str.size());
-	//}
+	setLastName();
+	setName();
+	setPatronymic();
+	setDateOfBirth();
+	setYearOfAdmission();
+	setFaculty();
+	setDepartment();
+	setGroup();
+	setNumberOfRecordBook();
+	setSex("Меню бинаризации");
 }
 
 void Student::setStudentData(int num) {
