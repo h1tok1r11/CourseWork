@@ -309,7 +309,7 @@ void Student::deleteFromFileStudentData(int num){
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	fopen_s(&tmpFile, "tmp.txt", "w+");
 	StudentNode tmpStudentData;
-	for (int i = 1; i < size; i++) {
+	for (int i = 0; i < size; i++) {
 		fread_s(&tmpStudentData, sizeof(tmpStudentData), sizeof(tmpStudentData), 1, binaryFile);
 		if (i != num)
 			fwrite(&tmpStudentData, sizeof(tmpStudentData), 1, tmpFile);
