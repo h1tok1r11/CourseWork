@@ -69,6 +69,7 @@ public:
 	void deleteFromFileStudentData(int num);
 	int countNumberOfRecords();
 	void getShortInfoFromFile();
+	void getShortInfoFromFile(int min, int max);
 	void clearStudentNode();
 	void bubbleSortMarksInDescendingOrder();
 };

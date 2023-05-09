@@ -358,6 +358,31 @@ void Student::getShortInfoFromFile() {
 	writeToFileStudentData(num);
 }
 
+void Student::getShortInfoFromFile(int min, int max) {
+	editData->setLabel("Укажите интервал года рождения студентов для дальнейшей сортировки этих студентов. ");
+	int size = countNumberOfRecords();
+	int min = editData->getData(editType::onlyDigits, 2000, 2023);
+	int max = editData->getData(editType::onlyDigits, 2000, 2023);
+	system("cls");
+	cout << "Список данных о студентах: " << endl;
+	FILE* binaryFile;
+	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
+	for (int i = 0; i < size; i++) {
+		fread_s(&studentData, sizeof(studentData), sizeof(studentData), 1, binaryFile);
+		//cout << i + 1 << ')'; printData();
+		cout << i << ") " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
+	}
+	fclose(binaryFile);
+	cout << "Нажмите любую клавишу" << endl;
+	_getch();
+	editData->clear();
+	editData->setLabel("Введите номер из списка чтобы получить подробную информацию о студенте. ");
+	int num = editData->getData(editType::onlyDigits, 0, size);
+	setStudentNodeFromFile(num);
+	editStudent();
+	writeToFileStudentData(num);
+}
+
 void Student::clearStudentNode() {
 	strcpy_s(studentData.lastName, "");
 	strcpy_s(studentData.name, "");
