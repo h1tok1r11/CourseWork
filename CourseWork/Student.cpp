@@ -178,7 +178,7 @@ void Student::printData() {
 }
 
 void Student::editStudent() {
-	Student::setDefaultData1();
+	//Student::setDefaultData1();
 	Menu<string>* menuOfStudents = new Menu<string>("___Меню редактирования студента___");
 
 	menuOfStudents->addMenuItem("Выход"); // 0
@@ -344,8 +344,8 @@ void Student::getShortInfoFromFile() {
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	for (int i = 0; i < size; i++) {
 		fread_s(&studentData, sizeof(studentData), sizeof(studentData), 1, binaryFile);
-		cout << i + 1 << ')'; printData();
-		//cout << i << ". " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
+		//cout << i + 1 << ')'; printData();
+		cout << i << ") " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
 	}
 	fclose(binaryFile);
 	cout << "Нажмите любую клавишу" << endl;
