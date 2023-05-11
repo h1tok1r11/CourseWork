@@ -16,6 +16,7 @@
 #include "Student.h"
 
 #include <wincrypt.h>
+#include "CryptoTools.h"
 
 using namespace std;
 
@@ -79,56 +80,58 @@ int main(){
     //student.deleteFromFileStudentData(2);
     //student.bubbleSortMarksInDescendingOrder();
 
-    HCRYPTPROV hProv;
-    HCRYPTKEY hSessionKey;
-    // Получение контекста криптопровайдера
-    if (!CryptAcquireContext(&hProv, NULL, NULL,
-        PROV_RSA_FULL, CRYPT_VERIFYCONTEXT))
-    {
-        std::cout << "CryptAcquireContext" << std::endl;
-        return 0;
-    }
-    std::cout << "Cryptographic provider initialized" << std::endl;
-    // Генерация сессионного ключа
-    if (!CryptGenKey(hProv, CALG_RC4, CRYPT_EXPORTABLE, &hSessionKey))
-    {
-        std::cout << "CryptGenKey" << std::endl;
-        return 0;
-    }
-    std::cout << "Session key generated" << std::endl;
-    // Данные для шифрования
-    char string[] = "TestTest";
-    char string1[100], string2[100];
-    //memcpy(string2, '\0', 100);
-    strcpy_s(string1, string);
-    DWORD count = strlen(string);
-    // Шифрование данных
-    if (!CryptEncrypt(hSessionKey, 0, true, 0, (BYTE*)string, &count, strlen(string)))
-    {
-        std::cout << "CryptEncrypt" << std::endl;
-        return 0;
-    }
-    std::cout << "Encryption completed" << std::endl;
-    // Тестовый вывод на экран
-    std::cout << "Encrypted string: " << string << "::::" << strlen(string) << std::endl;
-    //-----------------------------------------------------------------------------
-    // работа с файлом
-    //--------------------------------------------------------------------------
-    FILE* out = nullptr, * in = nullptr;
-    char c;
-    fopen_s(&out, "AAA.ddd", "w");
-    fwrite(string, strlen(string), 1, out);
-    fclose(out);
-    cin >> c;
-    fopen_s(&in, "AAA.ddd", "r");
-    fread(string1, strlen(string), 1, in);
-    fclose(in);
-    DWORD count1 = strlen(string1);
-    std::cout << "Encrypted string: " << string1 << "::::" << strlen(string1) << std::endl;
-    if (!CryptDecrypt(hSessionKey, 0, true, 0, (BYTE*)string1, &count1))
-    {
-        std::cout << "CryptDecrypt" << std::endl;
-        return 0;
-    }
-    std::cout << "Deccrypted string: " << string1 << "::::" << strlen(string1) << std::endl;
+    //HCRYPTPROV hProv;
+    //HCRYPTKEY hSessionKey;
+    //// Получение контекста криптопровайдера
+    //if (!CryptAcquireContext(&hProv, NULL, NULL,
+    //    PROV_RSA_FULL, CRYPT_VERIFYCONTEXT))
+    //{
+    //    std::cout << "CryptAcquireContext" << std::endl;
+    //    return 0;
+    //}
+    //std::cout << "Cryptographic provider initialized" << std::endl;
+    //// Генерация сессионного ключа
+    //if (!CryptGenKey(hProv, CALG_RC4, CRYPT_EXPORTABLE, &hSessionKey))
+    //{
+    //    std::cout << "CryptGenKey" << std::endl;
+    //    return 0;
+    //}
+    //std::cout << "Session key generated" << std::endl;
+    //// Данные для шифрования
+    //char string[] = "TestTest";
+    //char string1[100], string2[100];
+    ////memcpy(string2, '\0', 100);
+    //strcpy_s(string1, string);
+    //DWORD count = strlen(string);
+    //// Шифрование данных
+    //if (!CryptEncrypt(hSessionKey, 0, true, 0, (BYTE*)string, &count, strlen(string)))
+    //{
+    //    std::cout << "CryptEncrypt" << std::endl;
+    //    return 0;
+    //}
+    //std::cout << "Encryption completed" << std::endl;
+    //// Тестовый вывод на экран
+    //std::cout << "Encrypted string: " << string << "::::" << strlen(string) << std::endl;
+    ////-----------------------------------------------------------------------------
+    //// работа с файлом
+    ////--------------------------------------------------------------------------
+    //FILE* out = nullptr, * in = nullptr;
+    //char c;
+    //fopen_s(&out, "AAA.ddd", "w");
+    //fwrite(string, strlen(string), 1, out);
+    //fclose(out);
+    //cin >> c;
+    //fopen_s(&in, "AAA.ddd", "r");
+    //fread(string1, strlen(string), 1, in);
+    //fclose(in);
+    //DWORD count1 = strlen(string1);
+    //std::cout << "Encrypted string: " << string1 << "::::" << strlen(string1) << std::endl;
+    //if (!CryptDecrypt(hSessionKey, 0, true, 0, (BYTE*)string1, &count1))
+    //{
+    //    std::cout << "CryptDecrypt" << std::endl;
+    //    return 0;
+    //}
+    //std::cout << "Deccrypted string: " << string1 << "::::" << strlen(string1) << std::endl;
+
+    encrypt();
 }

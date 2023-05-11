@@ -51,7 +51,13 @@
     <ClInclude Include="Menu.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Encrypt.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
     <ClInclude Include="CryptoTools.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Decrypt.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
