@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CryptoTools.h" />
     <ClInclude Include="DateOfBirth.h" />
     <ClInclude Include="InputValidation.h" />
     <ClInclude Include="List.h" />
