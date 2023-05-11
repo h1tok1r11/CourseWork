@@ -21,7 +21,7 @@ char* readPasswordfromFile() {
 }
 
 void decryptWithAES(char* pass) {
-	string command = "openssl\\bin\\openssl.exe enc -aes-256-cbc -d -in file.txt.enc -out file.txt -pass pass:";
+	string command = "openssl\\bin\\openssl.exe enc -aes-256-cbc -d -in database.bin.enc -out database.bin -pass pass:";
 	command += pass;
 	system(command.c_str());
 }
@@ -36,7 +36,7 @@ void decrypt() {
 		cout << "[ERROR] - deleting file" << endl;
 	}
 	decryptWithAES(pass);
-	if (remove("file.txt.enc") != 0) {
+	if (remove("database.bin.enc") != 0) {
 		cout << "[ERROR] - deleting file" << endl;
 	}
 }

@@ -131,7 +131,8 @@ int main(){
     //    std::cout << "CryptDecrypt" << std::endl;
     //    return 0;
     //}
-    //std::cout << "Deccrypted string: " << string1 << "::::" << strlen(string1) << std::endl;
+    //std::cout << "Decrypted string: " << string1 << "::::" << strlen(string1) << std::endl;
 
-    encrypt();
+    Crypt();
+    Decrypt();
 }
