@@ -135,9 +135,9 @@ void Student::setSubjects(string header) {
 	MenuOfEditingSubjects->addMenuItem("Языки программирования"); //3
 	subjectItem = MenuOfEditingSubjects->run();
 	while (subjectItem != 0) {
-		if (subjectItem == 1) { studentData.sex = sex::man; subjectItem = 0; }
-		if (subjectItem == 2) { studentData.sex = sex::man; subjectItem = 0; }
-		if (subjectItem == 3) { studentData.sex = sex::man; subjectItem = 0; }
+		if (subjectItem == 1) { editData->getData(editType::onlyAlpha, 20); }
+		if (subjectItem == 2) { editData->getData(editType::onlyAlpha, 20); }
+		if (subjectItem == 3) { editData->getData(editType::onlyAlpha, 20); }
 	}
 
 	//MenuOfEditingSubjects->addMenuItem("Выход"); //0
