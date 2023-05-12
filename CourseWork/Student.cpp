@@ -46,7 +46,7 @@ void Student::setPatronymic() {
 
 void Student::setDateOfBirth() {
 	editData->clear(studentData.dateOfBirthString); editData->setLabel("Введите дату рождения: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	tmpstr = editData->getData(editType::date, "01.09.2000", "01.09.2030").c_str();
 	strncpy_s(studentData.dateOfBirthString, tmpstr.c_str(), tmpstr.size());
 }
 
@@ -345,15 +345,15 @@ void Student::getShortInfoFromFile() {
 	for (int i = 0; i < size; i++) {
 		fread_s(&studentData, sizeof(studentData), sizeof(studentData), 1, binaryFile);
 		//cout << i + 1 << ')'; printData();
-		cout << i << ") " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
+		cout << i + 1 << ") " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
 	}
 	fclose(binaryFile);
 	cout << "Нажмите любую клавишу" << endl;
 	_getch();
 	editData->clear();
-	editData->setLabel("Введите номер из списка чтобы получить подробную информацию о студенте. ");
+	editData->setLabel("Введите номер из списка, чтобы получить подробную информацию о студенте. ");
 	int num = editData->getData(editType::onlyDigits, 0, size);
-	setStudentNodeFromFile(num);
+	setStudentNodeFromFile(num - 1);
 	editStudent();
 	writeToFileStudentData(num);
 }

@@ -63,9 +63,9 @@ int main(){
     menu.addMenuItem("Zhopa");
     menu.addMenuItem("Ruka");
     menu.run();*/
-    //Student student;
+    Student student;
 
-    /*student.setDefaultData1();
+   /* student.setDefaultData1();
     student.addStudentToFile();
     student.setDefaultData2();
     student.addStudentToFile();
@@ -74,7 +74,7 @@ int main(){
     //student.addStudentToFile();
     //student.setStudentData();
     //student.addStudentToFile();
-    //student.getShortInfoFromFile();
+    student.getShortInfoFromFile();
     //student.setStudentData(1);
     //student.writeToFileStudentData(2);
     //student.deleteFromFileStudentData(2);
@@ -133,6 +133,6 @@ int main(){
     //}
     //std::cout << "Decrypted string: " << string1 << "::::" << strlen(string1) << std::endl;
 
-    Crypt();
-    Decrypt();
+    //Crypt();
+    //Decrypt();
 }

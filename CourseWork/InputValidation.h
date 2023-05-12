@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-//#include <string.h>
+#include <string>
 #include <conio.h>
 //#include <stdio.h>
 //#include "ClassMenu.h"
@@ -8,7 +8,7 @@
 using namespace std;
 
 
-enum class editType : char { onlyDigits, onlyAlpha, all };
+enum class editType : char { onlyDigits, onlyAlpha, date,all };
 
 
 class InputValidation
@@ -98,6 +98,19 @@ public:
 				cout << ch;
 				data = data + ch;
 			}
+			if (et == editType::date) {
+				if (data.length() == 10) {
+					return data;
+				}
+				if (data.length() == 2 or data.length() == 5) {
+					cout << ".";
+					data += ".";
+				}
+				if (isDigit(ch)){
+					cout << ch;
+					data = data + ch;
+				}
+			}
 		}
 		return data;
 	}
@@ -126,5 +139,16 @@ public:
 			}
 			return data;
 		}
+	}
+	string getData(enum class editType et, string min, string max) {
+		if (et == editType::date) {
+			getData(et);
+		}
+		if (not (data >= min and data <= max)) {
+			cout << endl << "!!!ОШИБКА!!!" << endl << "Число, которое вы ввели : " << "\"" << data << "\"" << " выходит из диапазона(" << min << "; " << max << ") " << endl;
+			cout << "Нажмите любую клавишу" << endl; _getch(); system("cls");
+			getData(et, min, max);
+		}
+		return data;
 	}
 };
