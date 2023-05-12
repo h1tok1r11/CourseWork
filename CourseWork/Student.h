@@ -51,6 +51,7 @@ public:
 	void setNumberOfRecordBook();
 	void setSex(string header);
 	void setSessions(string header);
+	void setSubjects(string header);
 	/*unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
 	void setFaculty(string faculty);
 	string getFaculty() { return faculty; }

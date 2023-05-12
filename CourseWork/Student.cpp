@@ -113,17 +113,33 @@ void Student::setSessions(string header) {
 	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты девятой сессии"); //9
 	while (sessionItem != 0) {
 		sessionItem = MenuOfEditingSessions->run();
-		if (sessionItem == 1) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 2) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 3) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 4) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 5) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 6) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 7) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 8) { studentData.sex = sex::man; sessionItem = 0; }
-		if (sessionItem == 9) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 1) { setSubjects("Меню редактирования предметов первой сессии"); }
+		if (sessionItem == 2) { setSubjects("Меню редактирования предметов второй сессии"); }
+		if (sessionItem == 3) { setSubjects("Меню редактирования предметов третьей сессии"); }
+		if (sessionItem == 4) { setSubjects("Меню редактирования предметов четвёртой сессии"); }
+		if (sessionItem == 5) { setSubjects("Меню редактирования предметов пятой сессии"); }
+		if (sessionItem == 6) { setSubjects("Меню редактирования предметов шестой сессии"); }
+		if (sessionItem == 7) { setSubjects("Меню редактирования предметов седьмой сессии"); }
+		if (sessionItem == 8) { setSubjects("Меню редактирования предметов восьмой сессии"); }
+		if (sessionItem == 9) { setSubjects("Меню редактирования предметов девятой сессии"); }
 	}
-	//Menu<string>* MenuOfEditingSubjects = new Menu<string>(header);
+	
+}
+
+void Student::setSubjects(string header) {
+	int subjectItem = -1;
+	Menu<string>* MenuOfEditingSubjects = new Menu<string>(header);
+	MenuOfEditingSubjects->addMenuItem("Выход"); //0
+	MenuOfEditingSubjects->addMenuItem("Математический анализ"); //1
+	MenuOfEditingSubjects->addMenuItem("Линейная алгебра"); //2
+	MenuOfEditingSubjects->addMenuItem("Языки программирования"); //3
+	subjectItem = MenuOfEditingSubjects->run();
+	while (subjectItem != 0) {
+		if (subjectItem == 1) { studentData.sex = sex::man; subjectItem = 0; }
+		if (subjectItem == 2) { studentData.sex = sex::man; subjectItem = 0; }
+		if (subjectItem == 3) { studentData.sex = sex::man; subjectItem = 0; }
+	}
+
 	//MenuOfEditingSubjects->addMenuItem("Выход"); //0
 	//MenuOfEditingSubjects->addMenuItem("Добавить предмет"); //1
 	//MenuOfEditingSubjects->addMenuItem("Изменить предмет"); //2
