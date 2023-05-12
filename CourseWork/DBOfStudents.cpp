@@ -65,7 +65,7 @@ int main(){
     menu.run();*/
     Student student;
 
-   /* student.setDefaultData1();
+    /*student.setDefaultData1();
     student.addStudentToFile();
     student.setDefaultData2();
     student.addStudentToFile();

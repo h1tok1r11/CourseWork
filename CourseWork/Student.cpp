@@ -95,6 +95,41 @@ void Student::setSex(string header) {
 	delete MenuOfEditingSex;
 }
 
+void Student::setSessions(string header) {
+	int sessionItem = -1;
+	Menu<string>* MenuOfEditingSessions = new Menu<string>(header);
+	MenuOfEditingSessions->addMenuItem("Выход"); //0
+	for (int i = 1; i < 10; i++) {
+		MenuOfEditingSessions->addMenuItem("Посмотреть результаты " + to_string(i) + " сессии");
+	}
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты первой сессии"); //1
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты второй сессии"); //2
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты третьей сессии"); //3
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты четвёртой сессии"); //4
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты пятой сессии"); //5
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты шестой сессии"); //6
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты седьмой сессии"); //7
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты восьмой сессии"); //8
+	//MenuOfEditingSessions->addMenuItem("Посмотреть результаты девятой сессии"); //9
+	while (sessionItem != 0) {
+		sessionItem = MenuOfEditingSessions->run();
+		if (sessionItem == 1) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 2) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 3) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 4) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 5) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 6) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 7) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 8) { studentData.sex = sex::man; sessionItem = 0; }
+		if (sessionItem == 9) { studentData.sex = sex::man; sessionItem = 0; }
+	}
+	//Menu<string>* MenuOfEditingSubjects = new Menu<string>(header);
+	//MenuOfEditingSubjects->addMenuItem("Выход"); //0
+	//MenuOfEditingSubjects->addMenuItem("Добавить предмет"); //1
+	//MenuOfEditingSubjects->addMenuItem("Изменить предмет"); //2
+	//MenuOfEditingSubjects->addMenuItem("Удалить предмет"); //3
+}
+
 //
 //void Student::setFaculty(string faculty)
 //{
@@ -123,10 +158,10 @@ void Student::setDefaultData1()
 	strcpy_s(studentData.group, "БББО-05-22");
 	strcpy_s(studentData.numberOfrecordBook, "1055А67");
 	studentData.sex = sex::attackHelicopter;
-	/*for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 9; i++)
 		for (int j = 0; j < 10; j++) {
 			studentData.sessions[i][j].isEmpty = true;
-		}*/
+		}
 }
 
 void Student::setDefaultData2()
@@ -141,10 +176,10 @@ void Student::setDefaultData2()
 	strcpy_s(studentData.group, "БББО-05-22");
 	strcpy_s(studentData.numberOfrecordBook, "1034А77");
 	studentData.sex = sex::man;
-	/*for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 9; i++)
 		for (int j = 0; j < 10; j++) {
 			studentData.sessions[i][j].isEmpty = true;
-		}*/
+		}
 }
 void Student::setDefaultData3()
 {
@@ -158,10 +193,10 @@ void Student::setDefaultData3()
 	strcpy_s(studentData.group, "БББО-05-22");
 	strcpy_s(studentData.numberOfrecordBook, "1983А56");
 	studentData.sex = sex::woman;
-	/*for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 9; i++)
 		for (int j = 0; j < 10; j++) {
 			studentData.sessions[i][j].isEmpty = true;
-		}*/
+		}
 }
 
 void Student::printData() {
@@ -231,7 +266,9 @@ void Student::editStudent() {
 		case 10:
 			setSex("Меню редактирования пола студента");
 			break;
-		// TODO case 11:
+		case 11:
+			setSessions("Меню редактирования результатов сессии");
+			break;
 		deafault:
 			break;
 		}
@@ -252,6 +289,7 @@ void Student::setStudentData() {
 	setGroup();
 	setNumberOfRecordBook();
 	setSex("Меню бинаризации");
+	setSessions("Меню просмотра сессий");
 }
 
 void Student::setStudentNodeFromFile(int num) {

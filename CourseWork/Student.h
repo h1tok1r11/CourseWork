@@ -26,7 +26,7 @@ struct StudentNode
 	char group[15];	
 	char numberOfrecordBook[10];
 	enum sex sex;
-	//Sessions sessions[9][10];
+	Sessions sessions[9][10];
 };
 
 class Student// : public Person
@@ -50,6 +50,7 @@ public:
 	void setGroup();
 	void setNumberOfRecordBook();
 	void setSex(string header);
+	void setSessions(string header);
 	/*unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
 	void setFaculty(string faculty);
 	string getFaculty() { return faculty; }
