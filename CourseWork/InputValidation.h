@@ -69,6 +69,47 @@ public:
 		data = _data;
 	}
 
+	string reverseDate(string date) {
+		string tmpDate = "";
+		for (int i = 6; i < 10; i++) {
+			tmpDate += date[i];
+		}
+		tmpDate += ".";
+		for (int i = 3; i < 5; i++) {
+			tmpDate += date[i];
+		}
+		tmpDate += ".";
+		for (int i = 0; i < 2; i++) {
+			tmpDate += date[i];
+		}
+		return tmpDate;
+	}
+
+	bool isDateTrue(string date) {
+		string strDay = "";
+		string strMonth = "";
+		string strYear = "";
+		for (int i = 0; i < 2; i++) {
+			strDay += date[i];
+		}
+		for (int i = 3; i < 5; i++) {
+			strMonth += date[i];
+		}
+		for (int i = 6; i < 10; i++) {
+			strYear += date[i];
+		}
+		int day = atoi(strDay.c_str());
+		int month = atoi(strMonth.c_str());
+		int year = atoi(strYear.c_str());
+		if (day <= 31 && day > 0) {
+			if (month <= 12 && month > 0) {
+				if (year <= 2050 && year > 1960) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	string getData(enum class editType et) {
 		char ch = 0;
@@ -104,7 +145,7 @@ public:
 				}
 				if (data.length() == 2 or data.length() == 5) {
 					cout << ".";
-					data += ".";
+					data = data += ".";
 				}
 				if (isDigit(ch)){
 					cout << ch;
@@ -144,10 +185,16 @@ public:
 		if (et == editType::date) {
 			getData(et);
 		}
-		if (not (data >= min and data <= max)) {
-			cout << endl << "!!!ОШИБКА!!!" << endl << "Число, которое вы ввели : " << "\"" << data << "\"" << " выходит из диапазона(" << min << "; " << max << ") " << endl;
-			cout << "Нажмите любую клавишу" << endl; _getch(); system("cls");
-			getData(et, min, max);
+		if (isDateTrue(data)) {
+			if (not (reverseDate(data) >= reverseDate(min) and reverseDate(data) <= reverseDate(max))) {
+				cout << endl << "!!!ОШИБКА!!!" << endl << "Число, которое вы ввели : " << "\"" << data << "\"" << " выходит из диапазона(" << min << "; " << max << ") " << endl;
+				cout << "Нажмите любую клавишу" << endl; _getch(); system("cls");
+				getData(et, min, max);
+			}
+		}
+		else {
+			cout << endl << "!!!ОШИБКА!!!" << endl << "Вы ввели несуществующую дат" << endl;
+			getData(et);
 		}
 		return data;
 	}
