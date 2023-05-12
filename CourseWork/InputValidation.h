@@ -193,8 +193,8 @@ public:
 			}
 		}
 		else {
-			cout << endl << "!!!ОШИБКА!!!" << endl << "Вы ввели несуществующую дат" << endl;
-			getData(et);
+			cout << endl << "!!!ОШИБКА!!!" << endl << "Вы ввели несуществующую дату" << endl;
+			getData(et, min, max);
 		}
 		return data;
 	}
