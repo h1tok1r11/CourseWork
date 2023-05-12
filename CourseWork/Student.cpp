@@ -28,25 +28,25 @@ string tmpstr;
 
 void Student::setLastName() {
 	editData->clear(studentData.lastName); editData->setLabel("Введите фамилию: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str(); //почему нельзя убрать c_str
+	tmpstr = editData->getData(editType::onlyAlpha, 30); //почему нельзя убрать c_str
 	strncpy_s(studentData.lastName, tmpstr.c_str(), tmpstr.size());
 }
 
 void Student::setName() {
 	editData->clear(studentData.name); editData->setLabel("Введите имя: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 20).c_str();
+	tmpstr = editData->getData(editType::onlyAlpha, 20);
 	strncpy_s(studentData.name, tmpstr.c_str(), tmpstr.size());
 }
 
 void Student::setPatronymic() {
 	editData->clear(studentData.patronymic); editData->setLabel("Введите отчество: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	tmpstr = editData->getData(editType::onlyAlpha, 30);
 	strncpy_s(studentData.patronymic, tmpstr.c_str(), tmpstr.size());
 }
 
 void Student::setDateOfBirth() {
 	editData->clear(studentData.dateOfBirthString); editData->setLabel("Введите дату рождения: ");
-	tmpstr = editData->getData(editType::date, "01.01.1960", "01.01.2023").c_str();
+	tmpstr = editData->getData(editType::date, "01.01.1960", "01.01.2023");
 	strncpy_s(studentData.dateOfBirthString, tmpstr.c_str(), tmpstr.size());
 }
 
@@ -57,25 +57,25 @@ void Student::setYearOfAdmission(){
 
 void Student::setFaculty() {
 	editData->clear(studentData.faculty); editData->setLabel("Введите факультет (институт): ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	tmpstr = editData->getData(editType::onlyAlpha, 30);
 	strncpy_s(studentData.faculty, tmpstr.c_str(), tmpstr.size());
 }
 
 void Student::setDepartment() {
 	editData->clear(studentData.department); editData->setLabel("Введите кафедру: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	tmpstr = editData->getData(editType::onlyAlpha, 30);
 	strncpy_s(studentData.department, tmpstr.c_str(), tmpstr.size());
 }
 
 void Student::setGroup() {
 	editData->clear(studentData.group); editData->setLabel("Введите группу: ");
-	tmpstr = editData->getData(editType::all, 15).c_str();
+	tmpstr = editData->getData(editType::all, 11);
 	strncpy_s(studentData.group, tmpstr.c_str(), tmpstr.size());
 }
 
 void Student::setNumberOfRecordBook() {
 	editData->clear(studentData.numberOfrecordBook); editData->setLabel("Введите номер зачётной книжки: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 10).c_str();
+	tmpstr = editData->getData(editType::all, 8);
 	strncpy_s(studentData.numberOfrecordBook, tmpstr.c_str(), tmpstr.size());
 }
 

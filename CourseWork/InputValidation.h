@@ -173,7 +173,7 @@ public:
 		if (et == editType::onlyAlpha or et == editType::all) {
 			getData(et);
 			if (data.length() > len) {
-				cout << endl << "!!!ОШИБКА!!!" << endl << "Слишком длинная строка: " << data.length() << " символов!" << endl << "Введите строку менее " << len << " символов!" << endl;
+				cout << endl << "!!!ОШИБКА!!!" << endl << "Слишком длинная строка: " << data.length() << " символов!" << endl << "Введите строку менее " << len - 1<< " символов!" << endl;
 				cout << "Нажмите любую клавишу" << endl; _getch(); system("cls");
 				getData(et, len);
 			}
