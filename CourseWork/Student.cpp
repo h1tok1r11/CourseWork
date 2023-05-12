@@ -34,7 +34,7 @@ void Student::setLastName() {
 
 void Student::setName() {
 	editData->clear(studentData.name); editData->setLabel("Введите имя: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	tmpstr = editData->getData(editType::onlyAlpha, 20).c_str();
 	strncpy_s(studentData.name, tmpstr.c_str(), tmpstr.size());
 }
 
@@ -46,7 +46,7 @@ void Student::setPatronymic() {
 
 void Student::setDateOfBirth() {
 	editData->clear(studentData.dateOfBirthString); editData->setLabel("Введите дату рождения: ");
-	tmpstr = editData->getData(editType::date, "01.09.2000", "01.09.2030").c_str();
+	tmpstr = editData->getData(editType::date, "01.01.1960", "01.01.2023").c_str();
 	strncpy_s(studentData.dateOfBirthString, tmpstr.c_str(), tmpstr.size());
 }
 
@@ -69,13 +69,13 @@ void Student::setDepartment() {
 
 void Student::setGroup() {
 	editData->clear(studentData.group); editData->setLabel("Введите группу: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	tmpstr = editData->getData(editType::all, 15).c_str();
 	strncpy_s(studentData.group, tmpstr.c_str(), tmpstr.size());
 }
 
 void Student::setNumberOfRecordBook() {
 	editData->clear(studentData.numberOfrecordBook); editData->setLabel("Введите номер зачётной книжки: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30).c_str();
+	tmpstr = editData->getData(editType::onlyAlpha, 10).c_str();
 	strncpy_s(studentData.numberOfrecordBook, tmpstr.c_str(), tmpstr.size());
 }
 

@@ -103,9 +103,7 @@ public:
 		int year = atoi(strYear.c_str());
 		if (day <= 31 && day > 0) {
 			if (month <= 12 && month > 0) {
-				if (year <= 2050 && year > 1960) {
-					return true;
-				}
+				return true;
 			}
 		}
 		return false;
@@ -172,10 +170,11 @@ public:
 		}
 	}
 	string getData(enum class editType et, int len) {
-		if (et == editType::onlyAlpha) {
+		if (et == editType::onlyAlpha or et == editType::all) {
 			getData(et);
 			if (data.length() > len) {
-				cout << endl << "??????: ????? ?????? ?????? ??? ???????????: " << data.length() << " ?????????: " << len << " ";
+				cout << endl << "!!!ОШИБКА!!!" << endl << "Слишком длинная строка: " << data.length() << " символов!" << endl << "Введите строку менее " << len << " символов!" << endl;
+				cout << "Нажмите любую клавишу" << endl; _getch(); system("cls");
 				getData(et, len);
 			}
 			return data;
@@ -194,6 +193,7 @@ public:
 		}
 		else {
 			cout << endl << "!!!ОШИБКА!!!" << endl << "Вы ввели несуществующую дату" << endl;
+			cout << "Нажмите любую клавишу" << endl; _getch(); system("cls");
 			getData(et, min, max);
 		}
 		return data;
