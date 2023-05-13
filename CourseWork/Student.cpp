@@ -127,23 +127,35 @@ void Student::setSessions(string header) {
 }
 
 void Student::setSubjects(string header) {
-	int subjectItem = -1;
+	int subjectsItem = -1;
 	Menu<string>* MenuOfEditingSubjects = new Menu<string>(header);
 	MenuOfEditingSubjects->addMenuItem("Выход"); //0
-	MenuOfEditingSubjects->addMenuItem("Математический анализ"); //1
-	MenuOfEditingSubjects->addMenuItem("Линейная алгебра"); //2
-	MenuOfEditingSubjects->addMenuItem("Языки программирования"); //3
-	subjectItem = MenuOfEditingSubjects->run();
-	while (subjectItem != 0) {
-		if (subjectItem == 1) { editData->getData(editType::onlyAlpha, 20); }
-		if (subjectItem == 2) { editData->getData(editType::onlyAlpha, 20); }
-		if (subjectItem == 3) { editData->getData(editType::onlyAlpha, 20); }
+	MenuOfEditingSubjects->addMenuItem("Добавить предмет"); //1
+	MenuOfEditingSubjects->addMenuItem("Математический анализ"); //2
+	MenuOfEditingSubjects->addMenuItem("Линейная алгебра"); //3
+	MenuOfEditingSubjects->addMenuItem("Языки программирования"); //4
+	subjectsItem = MenuOfEditingSubjects->run();
+	int subjectItem = -1;
+	Menu<string>* MenuOfEditingSubject = new Menu<string>(header);
+	MenuOfEditingSubject->addMenuItem("Выход"); //0
+	MenuOfEditingSubject->addMenuItem("Изменить предмет"); //1
+	MenuOfEditingSubject->addMenuItem("Удалить предмет"); //2
+	while (subjectsItem != 0) {
+		if (subjectsItem == 1) { 
+			editData->clear();
+			editData->setLabel("Введите название предмета");
+			editData->getData(editType::onlyAlpha, 30);
+		}
+		if (subjectsItem == 2) { 
+			subjectsItem = MenuOfEditingSubject->run();
+			while (subjectItem != 0) {
+				if (subjectItem == 1) { editData->getData(editType::onlyAlpha, 20); }
+				if (subjectItem == 2) { editData->getData(editType::onlyAlpha, 20); }
+			}
+		}
+		if (subjectsItem == 3) { editData->getData(editType::onlyAlpha, 20); }
 	}
-
-	//MenuOfEditingSubjects->addMenuItem("Выход"); //0
-	//MenuOfEditingSubjects->addMenuItem("Добавить предмет"); //1
-	//MenuOfEditingSubjects->addMenuItem("Изменить предмет"); //2
-	//MenuOfEditingSubjects->addMenuItem("Удалить предмет"); //3
+	
 }
 
 //
