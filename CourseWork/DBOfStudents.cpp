@@ -19,7 +19,7 @@ int main(){
     Student student;
 
     Decrypt();
-    student.getShortInfoFromFile();
+    //student.getShortInfoFromFile();
     student.bubbleSortMarksInDescendingOrder();
     Crypt();
 }

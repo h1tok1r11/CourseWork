@@ -824,8 +824,9 @@ float Student::returnGPA(int numberOfSession)
 void Student::bubbleSortMarksInDescendingOrder()
 {
 	editData->clear();
-	cout << "Укажите интервал года рождения студентов для дальнейшей сортировки этих студентов";
+	cout << "Укажите интервал года рождения студентов для дальнейшей сортировки этих студентов" << endl;
 	string minDate = setLeftBorderOfIntervalOfDateOfBirth();
+	cout << endl;
 	string maxDate = setRightBorderOfIntervalOfDateOfBirth();
 	editData->clear(); editData->setLabel("Введите группу, которую хотите отсортировать по убыванию  успеваемости студентов, учащихся в этой группе");
 	string group = editData->getData(editType::all, 11); group.pop_back();
@@ -864,7 +865,7 @@ void Student::bubbleSortMarksInDescendingOrder()
 	for (int i = 0; i < countOfItems; i++)
 	{
 		setStudentNodeFromFile(i);
-		if (studentData.group == group) {
+		if ((studentData.group == group) and (editData->reverseDate(studentData.dateOfBirthString) >= editData->reverseDate(minDate)) and (editData->reverseDate(studentData.dateOfBirthString) <= editData->reverseDate(maxDate))) {
 			printData();
 		}
 	}
