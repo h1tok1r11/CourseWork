@@ -128,33 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CryptoTools.h" />
-    <ClInclude Include="Decrypt.h" />
-    <ClInclude Include="Encrypt.h" />
-    <ClInclude Include="DateOfBirth.h" />
     <ClInclude Include="InputValidation.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="ListOfSessions.h" />
-    <ClInclude Include="ListOfSubjects.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="Person.h" />
-    <ClInclude Include="RecordBook.h" />
-    <ClInclude Include="Session.h" />
     <ClInclude Include="Student.h" />
-    <ClInclude Include="Subject.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DateOfBirth.cpp" />
     <ClCompile Include="DBOfStudents.cpp" />
     <ClCompile Include="InputValidation.cpp" />
-    <ClCompile Include="ListOfSessions.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="OneLinkedList.h" />
-    <ClCompile Include="Person.cpp" />
-    <ClCompile Include="RecordBook.cpp" />
-    <ClCompile Include="Session.cpp" />
     <ClCompile Include="Student.cpp" />
-    <ClCompile Include="Subject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,4 @@
-//#include "DateOfBirth.h"
-//#include "RecordBook.h"
-//#include "Person.h"
+
 #include "InputValidation.h"
 #pragma once
 
@@ -67,8 +65,9 @@ public:
 	void deleteFromFileStudentData(int num);
 	int countNumberOfRecords();
 	void getShortInfoFromFile();
-	void getShortInfoFromFile(int min, int max);
 	void clearStudentNode();
+	string setLeftBorderOfIntervalOfDateOfBirth();
+	string setRightBorderOfIntervalOfDateOfBirth();
 	float returnGPA(int numberOfSession);
 	void bubbleSortMarksInDescendingOrder();
 };

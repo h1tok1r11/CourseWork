@@ -793,6 +793,20 @@ void Student::clearStudentNode() {
 	strcpy_s(studentData.numberOfrecordBook, "");
 }
 
+string Student::setLeftBorderOfIntervalOfDateOfBirth()
+{
+	editData->setLabel("Введите минимальную дату рождения");
+	string minDate = editData->getData(editType::date, "01.01.1960", "01.01.2023");
+	return minDate;
+}
+
+string Student::setRightBorderOfIntervalOfDateOfBirth()
+{
+	editData->setLabel("Введите максимальную дату рождения");
+	string maxDate = editData->getData(editType::date, "01.01.1960", "01.01.2023");
+	return maxDate;
+}
+
 float Student::returnGPA(int numberOfSession)
 {
 	int sum = 0;
@@ -809,7 +823,10 @@ float Student::returnGPA(int numberOfSession)
 
 void Student::bubbleSortMarksInDescendingOrder()
 {
-
+	editData->clear();
+	cout << "Укажите интервал года рождения студентов для дальнейшей сортировки этих студентов";
+	string minDate = setLeftBorderOfIntervalOfDateOfBirth();
+	string maxDate = setRightBorderOfIntervalOfDateOfBirth();
 	editData->clear(); editData->setLabel("Введите группу, которую хотите отсортировать по убыванию  успеваемости студентов, учащихся в этой группе");
 	string group = editData->getData(editType::all, 11); group.pop_back();
 
@@ -824,7 +841,7 @@ void Student::bubbleSortMarksInDescendingOrder()
 	for (int i = 0; i < countOfItems; i++)
 	{
 		setStudentNodeFromFile(i);
-		if (studentData.group == group) {
+		if ((studentData.group == group) and (editData->reverseDate(studentData.dateOfBirthString) >= editData->reverseDate(minDate)) and (editData->reverseDate(studentData.dateOfBirthString) <= editData->reverseDate(maxDate))) {
 			ListOfStudents.push_back(studentData);
 			GPAarray[countOfGPAarrayItems] = returnGPA(numberOfSession);
 			countOfGPAarrayItems++;

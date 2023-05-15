@@ -1,3 +1,4 @@
+
 #pragma once
 #include "Node.h"
 #include <iostream>
@@ -22,7 +23,6 @@ public:
 	void removeAt(int idx);
 	void pop_back();
 	void printItems();
-	//Node<T>* getAt(int idx);
 };
 
 template <typename T>
@@ -30,24 +30,13 @@ inline List<T>::List()
 {
 	Size = 0;
 	pHead = pTail = nullptr;
-	//std::cout << "Вызвался конструктор" << std::endl;
 }
  
 template<typename T>
 inline List<T>::~List()
 {
 	clear();
-	//std::cout << "Вызвался деструктор" << std::endl;
 }
-
-//template <typename T>
-//T* begin() { return &data[0]; }
-//template <typename T>
-//const T* begin() { return &data[0]; }
-//template <typename T>
-//T* end() { return &data[length]; }
-//template <typename T>
-//const T* end() { return &data[length]; }
 
 template<typename T>
 void List<T>::push_back(T data)
@@ -62,14 +51,6 @@ void List<T>::push_back(T data)
 	{
 		pHead = pTail = pNew;
 	}
-	/*else {
-		Node<T>* pCur = this->pHead;
-		while (pCur->pNext != nullptr)
-		{
-			pCur = pCur->pNext;
-		}
-		pCur->pNext = pNew;
-	}*/
 	Size++;
 }
 
@@ -120,18 +101,6 @@ void List<T>::push_front(T data)
 	if (pTail == nullptr) pTail = pHead;
 }
 
-//template<typename T>
-//Node<T>* getAt(int idx) {
-//	if (idx < 0) return nullptr;
-//	Node<T>* pCur = this->pHead;
-//	int cnt = 0;
-//	while (pCur && pCur->pNext && cnt != idx) {
-//		pCur = pCur->pNext;
-//		cnt++;
-//	}
-//	return (cnt == idx) ? pCur : nullptr;
-//}
-
 template<typename T>
 void List<T>::insert(T data, int idx)
 {
@@ -146,11 +115,6 @@ void List<T>::insert(T data, int idx)
 		pLeft->pNext = new Node<T>(data, pLeft->pNext);
 		Size++;
 		if (pLeft->pNext->pNext == nullptr) pTail = pLeft->pNext;
-		/*Node<T>* pLeft = getAt(idx - 1);
-		if (pLeft == nullptr) return;
-		pLeft->pNext = new Node<T>(data, pLeft->pNext);
-		Size++;
-		if (pLeft->pNext->pNext == nullptr) pTail = pLeft->pNext;*/
 	}
 }
 
@@ -174,11 +138,6 @@ void List<T>::removeAt(int idx)
 		pLeft->pNext = ptoDelete->pNext;
 		delete ptoDelete;
 		Size--;
-		/*Node<T>* pLeft = getAt(idx);
-		Node<T>* ptoDelete = pLeft->pNext;
-		pLeft->pNext = ptoDelete->pNext;
-		delete ptoDelete;
-		Size--;*/
 	}
 }
 
