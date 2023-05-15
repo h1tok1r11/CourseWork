@@ -19,7 +19,6 @@ public:
 
 	Menu(string upTitle) {
 		this->upTitle = move(upTitle);
-		//upTitle =  _upTitle;
 	}
 
 	Menu() : Menu("Header") {
@@ -46,10 +45,6 @@ public:
 	void draw() {
 		system("cls");
 		cout << upTitle << endl;
-		//int count = items.getCount();
-		//for (int i = 0; i < count; i++) {
-		//	cout << i << ". " << items.getItem(i) << endl;
-		//}
 		items.printItems();
 		cout << downTitle;
 	}

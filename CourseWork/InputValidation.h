@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
-//#include <stdio.h>
-//#include "ClassMenu.h"
 
 using namespace std;
 
@@ -46,8 +44,6 @@ public:
 			return true;
 		if (ch >= 97 and ch <= 122)
 			return true;
-		/*if (ch >= 192 and ch <= 255)
-			return true;*/
 		if (ch >= -200 and ch <= -1)
 			return true;
 		return false;

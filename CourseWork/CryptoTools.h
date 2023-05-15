@@ -1,6 +1,4 @@
 #pragma once
-//#include "Decrypt.h"
-//#include "Encrypt.h"
 #include <iostream>
 #include <windows.h>
 #include <string>

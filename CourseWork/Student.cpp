@@ -17,20 +17,9 @@ Student::~Student()
 }
 
 string tmpstr;
-//Student::Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook) :
-//	yearOfAdmission(yearOfAdmission), faculty(faculty), department(department), group(group), numberOfrecordBook(numberOfrecordBook){}
-
-//bool Student::findStudentByRecordBook(string recordBook, List<Student> students)
-//{
-//	/*for (auto& student : students) {
-//		if (!strcmp(student.GetRecordBook(), recordBook)) return true;
-//	return false;*/
-//	for (auto p = std::begin(students);)
-//}
-
 void Student::setLastName() {
 	editData->clear(studentData.lastName); editData->setLabel("Введите фамилию: ");
-	tmpstr = editData->getData(editType::onlyAlpha, 30); //почему нельзя убрать c_str
+	tmpstr = editData->getData(editType::onlyAlpha, 30);
 	strncpy_s(studentData.lastName, tmpstr.c_str(), tmpstr.size());
 }
 
@@ -84,10 +73,10 @@ void Student::setNumberOfRecordBook() {
 void Student::setSex(string header) {
 	int sexItem = -1;
 	Menu<string>* MenuOfEditingSex = new Menu<string>(header);
-	MenuOfEditingSex->addMenuItem("Выход"); // 0
-	MenuOfEditingSex->addMenuItem("Мужской"); // 1 
-	MenuOfEditingSex->addMenuItem("Женский"); // 2
-	MenuOfEditingSex->addMenuItem("Боевовертолётный"); // 3
+	MenuOfEditingSex->addMenuItem("Выход");
+	MenuOfEditingSex->addMenuItem("Мужской"); 
+	MenuOfEditingSex->addMenuItem("Женский");
+	MenuOfEditingSex->addMenuItem("Боевовертолётный");
 	while (sexItem != 0) {
 		sexItem = MenuOfEditingSex->run();
 		if (sexItem == 1) { studentData.sex = sex::man; sexItem = 0; }
@@ -100,13 +89,13 @@ void Student::setSex(string header) {
 void Student::setMark(string header, int numderOfSession, int numberOfSubject) {
 	int markItem = -1;
 	Menu<string>* MenuOfEditingMark = new Menu<string>(header);
-	MenuOfEditingMark->addMenuItem("Выход"); // 0
-	MenuOfEditingMark->addMenuItem("Незачёт"); // 1 
-	MenuOfEditingMark->addMenuItem("Зачёт"); // 2
-	MenuOfEditingMark->addMenuItem("Неудовлетворительно"); // 3
-	MenuOfEditingMark->addMenuItem("Удовлетворительно"); // 4
-	MenuOfEditingMark->addMenuItem("Хорошо"); // 5
-	MenuOfEditingMark->addMenuItem("Отлично"); // 6
+	MenuOfEditingMark->addMenuItem("Выход");
+	MenuOfEditingMark->addMenuItem("Незачёт"); 
+	MenuOfEditingMark->addMenuItem("Зачёт");
+	MenuOfEditingMark->addMenuItem("Неудовлетворительно");
+	MenuOfEditingMark->addMenuItem("Удовлетворительно");
+	MenuOfEditingMark->addMenuItem("Хорошо");
+	MenuOfEditingMark->addMenuItem("Отлично");
 	while (markItem != 0) {
 		markItem = MenuOfEditingMark->run();
 		switch (markItem)
@@ -146,7 +135,7 @@ string Student::returnMarkString(enum markType mark) {
 void Student::setSessions(string header, int numberOfStudent) {
 	int sessionItem = -1;
 	Menu<string>* MenuOfEditingSessions = new Menu<string>(header);
-	MenuOfEditingSessions->addMenuItem("Выход"); //0
+	MenuOfEditingSessions->addMenuItem("Выход");
 	for (int i = 1; i < 10; i++) {
 		MenuOfEditingSessions->addMenuItem("Посмотреть результаты " + to_string(i) + " сессии");
 	}
@@ -184,23 +173,19 @@ void Student::setSubjects(string header, int numberOfSession, int numberOfStuden
 	int subjectItem = -1;
 	string space = " ";
 	Menu<string>* MenuOfEditingSubjects = new Menu<string>(header);
-	MenuOfEditingSubjects->addMenuItem("Выход"); //0
-	MenuOfEditingSubjects->addMenuItem("Добавить предмет"); //1
+	MenuOfEditingSubjects->addMenuItem("Выход");
+	MenuOfEditingSubjects->addMenuItem("Добавить предмет");
 	for (int i = 0; i < 10; i++) {
 		if (studentData.sessions[numberOfSession][i].isEmpty)
-			MenuOfEditingSubjects->addMenuItem("Пусто");// 2-11
+			MenuOfEditingSubjects->addMenuItem("Пусто");
 		else
 			MenuOfEditingSubjects->addMenuItem(studentData.sessions[numberOfSession][i].nameOfSubject + space + returnMarkString(studentData.sessions[numberOfSession][i].markType));
 	}
 	int subjectInfoItem = -1;
 	Menu<string>* MenuOfEditingSubjectInfo = new Menu<string>(header);
-	MenuOfEditingSubjectInfo->addMenuItem("Выход"); //0
-	MenuOfEditingSubjectInfo->addMenuItem("Удалить предмет"); //1
-	MenuOfEditingSubjectInfo->addMenuItem("Изменить информацию о предмете"); //2
-	//MenuOfEditingSubjectInfo->addMenuItem("Изменить оценку"); //3
-	//MenuOfEditingSubjects->addMenuItem("Математический анализ"); //2
-	//MenuOfEditingSubjects->addMenuItem("Линейная алгебра"); //3
-	//MenuOfEditingSubjects->addMenuItem("Языки программирования"); //4
+	MenuOfEditingSubjectInfo->addMenuItem("Выход");
+	MenuOfEditingSubjectInfo->addMenuItem("Удалить предмет");
+	MenuOfEditingSubjectInfo->addMenuItem("Изменить информацию о предмете");
 	while (subjectItem != 0) {
 		writeToFileStudentData(numberOfStudent);
 		subjectItem = MenuOfEditingSubjects->run();
@@ -216,7 +201,6 @@ void Student::setSubjects(string header, int numberOfSession, int numberOfStuden
 					strncpy_s(studentData.sessions[numberOfSession][j].nameOfSubject, tmpstr.c_str(), tmpstr.size());
 
 					string nameOfSubjectString(studentData.sessions[numberOfSession][j].nameOfSubject);
-					//string mark = setMark("Введите оценку по предмету " + nameOfSubjectString, i, j);
 					setMark("Введите оценку по предмету " + nameOfSubjectString, numberOfSession, j);
 					MenuOfEditingSubjects->editMenuItem(studentData.sessions[numberOfSession][j].nameOfSubject + space + returnMarkString(studentData.sessions[numberOfSession][j].markType), j + 2);
 					studentData.sessions[numberOfSession][j].isEmpty = false;
@@ -636,21 +620,20 @@ void Student::printData() {
 }
 
 void Student::editStudent(int numberOfSesssion) {
-	//Student::setDefaultData1();
 	Menu<string>* menuOfStudents = new Menu<string>("___Меню редактирования студента___");
 
-	menuOfStudents->addMenuItem("Выход"); // 0
-	menuOfStudents->addMenuItem("Изменить фамилию"); // 1 
-	menuOfStudents->addMenuItem("Изменить имя"); // 2
-	menuOfStudents->addMenuItem("Изменить отчество"); // 3
-	menuOfStudents->addMenuItem("Изменить дату рождения"); // 4
-	menuOfStudents->addMenuItem("Изменить год постулпения"); // 5
-	menuOfStudents->addMenuItem("Изменить факультет (институт)"); // 6
-	menuOfStudents->addMenuItem("Изменить кафедру"); //7
-	menuOfStudents->addMenuItem("Изменить группу"); // 8
-	menuOfStudents->addMenuItem("Изменить номер зачётной книжки"); // 9
-	menuOfStudents->addMenuItem("Изменить пол"); // 10
-	menuOfStudents->addMenuItem("Просмотреть/изменить успеваемость"); // 11
+	menuOfStudents->addMenuItem("Выход");
+	menuOfStudents->addMenuItem("Изменить фамилию");
+	menuOfStudents->addMenuItem("Изменить имя");
+	menuOfStudents->addMenuItem("Изменить отчество");
+	menuOfStudents->addMenuItem("Изменить дату рождения");
+	menuOfStudents->addMenuItem("Изменить год постулпения");
+	menuOfStudents->addMenuItem("Изменить факультет (институт)");
+	menuOfStudents->addMenuItem("Изменить кафедру");
+	menuOfStudents->addMenuItem("Изменить группу");
+	menuOfStudents->addMenuItem("Изменить номер зачётной книжки");
+	menuOfStudents->addMenuItem("Изменить пол");
+	menuOfStudents->addMenuItem("Просмотреть/изменить успеваемость");
 	int selectedItem = -1;
 	while (selectedItem != 0) {
 		printData();
@@ -696,7 +679,6 @@ void Student::editStudent(int numberOfSesssion) {
 			break;
 		}
 	}
-	//studentData.GPA = returnGPA(numberOfSesssion);
 	delete menuOfStudents;
 }
 
@@ -728,20 +710,6 @@ void Student::addStudentToFile() {
 	fopen_s(&binaryFile, nameOfFile.c_str(), "a+");
 	fwrite(&studentData, sizeof(studentData), 1, binaryFile);
 	fclose(binaryFile);
-	/*ofstream fout(nameOfFile, ios::binary);
-	fout.write(lastName, sizeof(lastName));
-	fout.write(name, sizeof(name));
-	fout.write(patronymic, sizeof(patronymic));
-	fout.write(dateOfBirth, sizeof(dateOfBirth));
-	fout.write((char*)yearOfAdmission, sizeof(yearOfAdmission));
-	fout.write(faculty, sizeof(faculty));
-	fout.write(department, sizeof(department));
-	fout.write(group, sizeof(group));
-	fout.write(numberOfrecordBook, sizeof(numberOfrecordBook));
-	fout.write((char*)sex, sizeof(sex));
-	fout.write(lastName, sizeof(lastName));
-	fout.write((char*)sessions, sizeof(sessions));
-	fout.close();*/
 }
 
 void Student::writeToFileStudentData(int num) {
@@ -784,11 +752,6 @@ void Student::deleteFromFileStudentData(int num) {
 }
 
 int Student::countNumberOfRecords() {
-	/*ifstream fin(nameOfFile, ios::binary);
-	fin.seekg(0, ios::end);
-	int size = fin.tellg();
-	fin.close();
-	return size / sizeof(size);*/
 	FILE* binaryFile;
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	fseek(binaryFile, 0l, SEEK_END);
@@ -805,7 +768,6 @@ void Student::getShortInfoFromFile() {
 	fopen_s(&binaryFile, nameOfFile.c_str(), "r");
 	for (int i = 0; i < size; i++) {
 		fread_s(&studentData, sizeof(studentData), sizeof(studentData), 1, binaryFile);
-		//cout << i + 1 << ')'; printData();
 		cout << i + 1 << ") " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
 	}
 	fclose(binaryFile);
@@ -817,31 +779,6 @@ void Student::getShortInfoFromFile() {
 	setStudentNodeFromFile(num - 1);
 	editStudent(num);
 	writeToFileStudentData(num);
-}
-
-void Student::getShortInfoFromFile(int min, int max) {
-	//editData->setLabel("Укажите интервал года рождения студентов для дальнейшей сортировки этих студентов. ");
-	//int size = countNumberOfRecords();
-	//int min = editData->getData(editType::onlyDigits, 2000, 2023);
-	//int max = editData->getData(editType::onlyDigits, 2000, 2023);
-	//system("cls");
-	//cout << "Список данных о студентах: " << endl;
-	//FILE* binaryFile;
-	//fopen_s(&binaryFile, nameOfFile.c_str(), "r");
-	//for (int i = 0; i < size; i++) {
-	//	fread_s(&studentData, sizeof(studentData), sizeof(studentData), 1, binaryFile);
-	//	//cout << i + 1 << ')'; printData();
-	//	cout << i << ") " << studentData.lastName << " " << studentData.name << " " << studentData.patronymic << " " << studentData.dateOfBirthString << endl;
-	//}
-	//fclose(binaryFile);
-	//cout << "Нажмите любую клавишу" << endl;
-	//_getch();
-	//editData->clear();
-	//editData->setLabel("Введите номер из списка чтобы получить подробную информацию о студенте. ");
-	//int num = editData->getData(editType::onlyDigits, 0, size);
-	//setStudentNodeFromFile(num);
-	//editStudent();
-	//writeToFileStudentData(num);
 }
 
 void Student::clearStudentNode() {
@@ -914,10 +851,4 @@ void Student::bubbleSortMarksInDescendingOrder()
 			printData();
 		}
 	}
-	/*for (int i = 0; i < countOfItems; i++)
-	{
-		studentData = ListOfStudents[i];
-		deleteFromFileStudentData(0);
-		addStudentToFile();
-	}*/
 }
