@@ -74,11 +74,11 @@ int main(){
     //student.addStudentToFile();
     //student.setStudentData();
     //student.addStudentToFile();
-    student.getShortInfoFromFile();
+    //student.getShortInfoFromFile();
     //student.setStudentData(1);
     //student.writeToFileStudentData(2);
     //student.deleteFromFileStudentData(2);
-    //student.bubbleSortMarksInDescendingOrder();
+    student.bubbleSortMarksInDescendingOrder();
 
     //HCRYPTPROV hProv;
     //HCRYPTKEY hSessionKey;

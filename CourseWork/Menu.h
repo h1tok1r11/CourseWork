@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿
+#pragma once
 #include "windows.h"
 #include <iostream>
 #include <string.h>
@@ -12,7 +13,7 @@ class Menu
 {
 private:
 	string upTitle;
-	List<T> items; 
+	List<T> items;
 	string downTitle;
 public:
 
@@ -28,6 +29,20 @@ public:
 	void addMenuItem(string _item) {
 		items.push_back(_item);
 	}
+
+	void insertMenuItem(string _item, int idx) {
+		items.insert(_item, idx);
+	}
+
+	void editMenuItem(string _item, int idx) {
+		deleteMenuItem(idx);
+		insertMenuItem(_item, idx);
+	}
+
+	void deleteMenuItem(int idx) {
+		items.removeAt(idx);
+	}
+
 	void draw() {
 		system("cls");
 		cout << upTitle << endl;

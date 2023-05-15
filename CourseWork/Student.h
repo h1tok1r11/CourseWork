@@ -9,13 +9,14 @@ enum markType : int { fail, pass, bad, satisfactory, good, excellent };
 
 
 struct Sessions {
-	string nameOfSubject;
+	char nameOfSubject[50];
 	enum markType markType;
 	bool isEmpty;
 };
 
-struct StudentNode  
+struct StudentNode
 {
+	//float GPA = 0;
 	char lastName[30];
 	char name[20];
 	char patronymic[30];
@@ -23,7 +24,7 @@ struct StudentNode
 	int yearOfAdmission;
 	char faculty[30];
 	char department[30];
-	char group[15];	
+	char group[15];
 	char numberOfrecordBook[10];
 	enum sex sex;
 	Sessions sessions[9][10];
@@ -50,21 +51,16 @@ public:
 	void setGroup();
 	void setNumberOfRecordBook();
 	void setSex(string header);
-	void setSessions(string header);
-	void setSubjects(string header);
-	/*unsigned short getYearOfAdmiddion() { return yearOfAdmission; }
-	void setFaculty(string faculty);
-	string getFaculty() { return faculty; }
-	void setDepartment(string department);
-	string getDepartment() { return department; }
-	void setGroup(string group);
-	string getgroup() { return group; }*/
+	void setMark(string header, int numberOfSession, int numberOfSubject);
+	string returnMarkString(enum markType mark);
+	void setSessions(string header, int numberOfStudent);
+	void setSubjects(string header, int numberOfSesssion, int numberOfStudent);
 	void setDefaultData1();
 	void setDefaultData2();
 	void setDefaultData3();
 	void printData();
-	void editStudent();
-	void setStudentData();
+	void editStudent(int numberOfSesssion);
+	void setStudentData(int numberOfSesssion);
 	void setStudentNodeFromFile(int num);
 	void addStudentToFile();
 	void writeToFileStudentData(int	num);
@@ -73,5 +69,6 @@ public:
 	void getShortInfoFromFile();
 	void getShortInfoFromFile(int min, int max);
 	void clearStudentNode();
+	float returnGPA(int numberOfSession);
 	void bubbleSortMarksInDescendingOrder();
 };
