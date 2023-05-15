@@ -907,6 +907,13 @@ void Student::bubbleSortMarksInDescendingOrder()
 		}
 		if (flag) break;
 	}
+	for (int i = 0; i < countOfItems; i++)
+	{
+		setStudentNodeFromFile(i);
+		if (studentData.group == group) {
+			printData();
+		}
+	}
 	/*for (int i = 0; i < countOfItems; i++)
 	{
 		studentData = ListOfStudents[i];
