@@ -883,14 +883,16 @@ void Student::bubbleSortMarksInDescendingOrder()
 	int countOfItems = countNumberOfRecords();
 
 	float GPAarray[10];
+	int countOfGPAarrayItems = 0;
 	for (int i = 0; i < countOfItems; i++)
 	{
 		setStudentNodeFromFile(i);
-		ListOfStudents.push_back(studentData);
-		if (ListOfStudents[i].group != group) ListOfStudents.pop_back();
-		else {
-			GPAarray[i] = returnGPA(numberOfSession);
+		if (studentData.group == group) {
+			ListOfStudents.push_back(studentData);
+			GPAarray[countOfGPAarrayItems] = returnGPA(numberOfSession);
+			countOfGPAarrayItems++;
 		}
+		
 	}
 
 	for (int i = 0; i < countOfItems; i++) {
@@ -905,10 +907,10 @@ void Student::bubbleSortMarksInDescendingOrder()
 		}
 		if (flag) break;
 	}
-	for (int i = 0; i < countOfItems; i++)
+	/*for (int i = 0; i < countOfItems; i++)
 	{
 		studentData = ListOfStudents[i];
 		deleteFromFileStudentData(0);
 		addStudentToFile();
-	}
+	}*/
 }
