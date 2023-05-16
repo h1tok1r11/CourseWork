@@ -6,15 +6,17 @@ enum sex : char { man, woman, attackHelicopter };
 enum markType : int { fail, pass, bad, satisfactory, good, excellent };
 
 
-struct Sessions {
+class Sessions 
+{
+public:
 	char nameOfSubject[50];
 	enum markType markType;
 	bool isEmpty;
 };
 
-struct StudentNode
+class StudentNode
 {
-	//float GPA = 0;
+public:
 	char lastName[30];
 	char name[20];
 	char patronymic[30];
@@ -28,7 +30,7 @@ struct StudentNode
 	Sessions sessions[9][10];
 };
 
-class Student// : public Person
+class Student
 {
 private:
 	string nameOfFile;
@@ -37,8 +39,6 @@ private:
 public:
 	Student();
 	~Student();
-	//Student(DateOfBirth dateOfBirth, unsigned short yearOfAdmission, string faculty, string department, string group, string numberOfrecordBook);
-	//static bool findStudentByRecordBook(string recordBook, List<Student> students);
 	void setLastName();
 	void setName();
 	void setPatronymic();

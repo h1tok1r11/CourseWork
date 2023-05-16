@@ -137,7 +137,6 @@
   <ItemGroup>
     <ClCompile Include="DBOfStudents.cpp" />
     <ClCompile Include="InputValidation.cpp" />
-    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
