@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Node&lt;T&gt;">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAQAAEAAAA=</HashCode>
+      <FileName>Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="List&lt;T&gt;">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkAAACAAAIRAgAAAiCEAAAAAAAEAAAAAAAEAAAAAAAI=</HashCode>
+      <FileName>List.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputValidation">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAEAAAAAAEBBAABAAIAAAAAAAAAAAQQAQACAAAIA=</HashCode>
+      <FileName>InputValidation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu&lt;T&gt;">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAQAgAAAAAAAAAAAAoAQAAAAAAIAAAAgAAAgAAIAAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sessions">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentNode">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>aAAAAAAAgEAAIAAAAAQAAAAQAAgEAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEQiIZBAEIQBABCARCIgUEAAgAABQgkAAQAAAwCA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="editType">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAQCAAAA=</HashCode>
+      <FileName>InputValidation.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="sex">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="markType">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACQAAAAAAAAAEAAAAAAAAAAgIAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

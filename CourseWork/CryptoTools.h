@@ -24,13 +24,13 @@ void Crypt()
 			pass[i] = rand() % 26 + 'a';
 		}
 	}
-		string command = "openssl\\bin\\openssl.exe enc -aes-256-cbc -salt -in database.bin -out database.bin.enc -pass pass:";
+	string command = "openssl\\bin\\openssl.exe enc -aes-256-cbc -salt -in database.bin -out database.bin.enc -pass pass:";
 	command += pass;
 	system(command.c_str());
 	
-		if (remove("database.bin") != 0) {
-			cout << "[ERROR] - deleting file" << endl;
-		}
+	if (remove("database.bin") != 0) {
+		cout << "[ERROR] - deleting file" << endl;
+	}
 	ofstream file;
 	file.open("key.txt", ios::binary);
 	file.write(pass, 65);

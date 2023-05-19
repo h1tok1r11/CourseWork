@@ -136,8 +136,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DBOfStudents.cpp" />
-    <ClCompile Include="InputValidation.cpp" />
     <ClCompile Include="Student.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

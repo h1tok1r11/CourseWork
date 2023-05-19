@@ -58,7 +58,7 @@ public:
 	void setDefaultData3();
 	void printData();
 	void editStudent(int numberOfSesssion);
-	void setStudentData(int numberOfSesssion);
+	void setStudentData(int numberOfSesssion = 1);
 	void setStudentNodeFromFile(int num);
 	void addStudentToFile();
 	void writeToFileStudentData(int	num);

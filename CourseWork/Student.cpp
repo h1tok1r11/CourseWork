@@ -862,6 +862,7 @@ void Student::bubbleSortMarksInDescendingOrder()
 		}
 		if (flag) break;
 	}
+
 	for (int i = 0; i < countOfItems; i++)
 	{
 		setStudentNodeFromFile(i);
